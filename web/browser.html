@@ -33,6 +33,16 @@
         </div>
       </div>
     </form>
+    <div class="input-group pt-3 pl-3 pr-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Search</label>
+      </div>
+      <input id="search" type="text" class="form-control" placeholder="Type here..." oninput="updateSearch();"/>
+      <div class="input-group-append">
+        <input type="hidden" name="path"/>
+        <button class="btn btn-primary" onclick="resetSearch();">Reset</button>
+      </div>
+    </div>
     <div class="p-3">
       <table class="table table-striped">
         <thead class="table-primary">

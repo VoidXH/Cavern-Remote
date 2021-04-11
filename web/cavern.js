@@ -1,12 +1,16 @@
+function get(id) {
+  return document.getElementById(id);
+}
+
 function postWith(id, target) {
   if (target != null)
-    document.getElementById(target).value = id;
+    get(target).value = id;
   postForm(id, 'null', 0);
 }
 
 function selectShader() {
-  var shader = parseInt(document.getElementById("shaderPresets").value);
-  document.getElementById("shaderCommand").value = 4201 + shader;
+  var shader = parseInt(get("shaderPresets").value);
+  get("shaderCommand").value = 4201 + shader;
   postForm(4201 + shader, 'null', 0);
   document.cookie = "shader=" + shader + ";";
 }
@@ -16,7 +20,7 @@ function sendRequest(uri) {
 }
 
 function selectApo() {
-  var id = parseInt(document.getElementById("apoPresets").value);
+  var id = parseInt(get("apoPresets").value);
   document.cookie = "apo=" + id + ";";
   sendRequest(encodeURIComponent(apoPresetNames[id]));
 }
@@ -53,9 +57,9 @@ function addMenuLink(menu, name, target, active) {
 function setVisibility(div, state) {
   if (div) {
     var next = state ? "block" : "none";
-      if (div.style.display != next)
-        div.style.display = next;
-    nav = document.getElementById("nav-" + div.id);
+    if (div.style.display != next)
+      div.style.display = next;
+    nav = get("nav-" + div.id);
     if (state)
       nav.classList.add("active");
     else
@@ -71,7 +75,7 @@ function loadCavern(path, page) {
   var dot = path.lastIndexOf('.');
   if (slash != -1 && dot != -1)
     path = path.substring(slash + 1, dot);
-  var title = document.getElementById("title");
+  var title = get("title");
   if (title)
     title.value = decodeURI(path);
 
@@ -79,7 +83,7 @@ function loadCavern(path, page) {
   if (param == null)
     param = page;
 
-  var menu = document.getElementById("navmenu");
+  var menu = get("navmenu");
   addMenuLink(menu, "Browser", "browser.html", param == "browser");
   addMenuLink(menu, "Controls", "controls.html", param == "controls");
   addMenuLink(menu, "Corrections", "controls.html?p=corrections", param == "corrections");
@@ -91,22 +95,22 @@ function loadCavern(path, page) {
   var openPage = controlPages.indexOf(param);
   if (openPage >= 0) {
     controlPages.forEach(page => 
-      setVisibility(document.getElementById(page), param == page));
+      setVisibility(get(page), param == page));
     window.onresize = function() {
       var page = controlPages[openPage];
-      var maxOpen = Math.floor(window.innerWidth / document.getElementById(page).clientWidth);
+      var maxOpen = Math.floor(window.innerWidth / get(page).clientWidth);
       if (maxOpen < 1)
         maxOpen = 1;
       var lastOpen = Math.min(openPage + maxOpen, controlPages.length);
       for (var i = 0; i < controlPages.length; ++i) {
         page = controlPages[(openPage + i) % controlPages.length];
-        setVisibility(document.getElementById(page), i < maxOpen);
+        setVisibility(get(page), i < maxOpen);
       }
     }
     window.onresize();
   }
 
-  var select = document.getElementById("shaderPresets");
+  var select = get("shaderPresets");
   if (select) {
     var shader = getCookie("shader");
     for(var i = 0; i < shaderPresetNames.length; ++i) {
@@ -119,7 +123,7 @@ function loadCavern(path, page) {
     }
   }
   
-  select = document.getElementById("apoPresets");
+  select = get("apoPresets");
   if (select) {
     var preset = getCookie("apo");
     for(var i = 0; i < apoPresetNames.length; ++i) {
@@ -140,7 +144,7 @@ hidden = [
 ]
 
 function fixBrowser() {
-  var table = document.getElementById("files");
+  var table = get("files");
   for (var i = 0, row; row = table.rows[i]; i++) {
     var entry = row.cells[0].childNodes[0].innerHTML;
     if (hidden.indexOf(entry.toLowerCase()) >= 0) {
@@ -170,4 +174,20 @@ function fixBrowser() {
       }
     }  
   }
+}
+
+function updateSearch() {
+  var table = get("files");
+  var string = get("search").value.toLowerCase();
+  for (var i = 1, row; row = table.rows[i]; i++) {
+    var entry = row.cells[0].childNodes[0].innerHTML.toLowerCase();
+    var next = string.length == 0 || entry.includes(string) ? "table-row" : "none";
+    if (row.style.display != next)
+      row.style.display = next;
+  }
+}
+
+function resetSearch() {
+  get("search").value = "";
+  updateSearch();
 }
