@@ -11,33 +11,8 @@ function selectShader() {
   document.cookie = "shader=" + shader + ";";
 }
 
-// Based on: https://github.com/chros73/madvr-js-remote
 function sendRequest(uri) {
-  var ajaxRequest;
-  try {
-    ajaxRequest = new XMLHttpRequest();
-  } catch (e) {
-    try {
-      ajaxRequest = new ActiveXObject('Msxml2.XMLHTTP');
-    } catch (e) {
-      try {
-        ajaxRequest = new ActiveXObject('Microsoft.XMLHTTP');
-      } catch (e) {
-        return false;
-      }
-    }
-  }
-  ajaxRequest.onreadystatechange = function() {
-    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200)
-      clearTimeout(ajaxRequestTimeout);
-  }
-  ajaxRequest.open('GET', "Cavern.md?" + uri, true);
-  ajaxRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  ajaxRequest.send();
-  var ajaxRequestTimeout = setTimeout(ajaxTimeout, 2000);
-  function ajaxTimeout() {
-    ajaxRequest.abort();
-  }
+  fetch("Cavern.md?" + uri);
 }
 
 function selectApo() {
