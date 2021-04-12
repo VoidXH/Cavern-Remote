@@ -20,7 +20,12 @@ and keyboard/mouse control. The Remote is split into separate pages:
 	- "Serve pages from" - set this to Cavern Remote's "web" folder.
 	- "CGI handlers" - set this to Cavern Remote's "handler.exe", like:
 	`.md=C:\Cavern Remote\handler\handler.exe;`
-2. Check all optional setup tasks, and do the ones you need.
+2. Check your local IP (open a command prompt and use the `ipconfig` command and
+  look for `IPv4 Address`) and port (in MPC-HC's Web Interface settings), and
+  merge them like `<IPv4 address>:<port>`. This will be the web address that
+  opens Cavern Remote in your browser or on your phone. Create a shortcut if
+  it's convenient.
+3. Check all optional setup tasks, and do the ones you need.
 
 ### Optional: run MPC-HC as admin
 For full functionality (keyboard, mouse, and Equalizer APO control), MPC-HC has
