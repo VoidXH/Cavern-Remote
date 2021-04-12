@@ -1,9 +1,0 @@
-Include: QuickEQ hangszóró.txt
-Include: JBL Xtreme 2.txt
-Include: Mic fix.txt
-Device:      Focusrite USB Focusrite USB Audio {e038f501-0a76-4096-a36d-384fa9f3a18f}
-Include: Jack - JBL Live 500BT.txt
-Include: B:\Letöltések\BITCONNEEEEEEEEEEEEEEEEEEEEEEEEECT\F A S Z O M\Cavern HRTF\leszopol XD.txt
-Include: B:\Letöltések\BITCONNEEEEEEEEEEEEEEEEEEEEEEEEECT\F A S Z O M\Cavern HRTF\leszopol XD + Rear.txt
-Device:   Fejhallgató JBL REFLECT FLOW Stereo {427b1496-1012-4890-aebe-fae755aea208}
-Include: B:\Letöltések\BITCONNEEEEEEEEEEEEEEEEEEEEEEEEECT\F A S Z O M\Cavern HRTF\leszopol XD 44100.txt
