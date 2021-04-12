@@ -105,3 +105,17 @@
 .hide {
   display: none;
 }
+
+.evenly {
+  display: flex;
+  justify-content: space-between;
+}
+
+.autow {
+  width: auto;
+}
+
+table thead th {
+  vertical-align: middle !important;
+  align-items: center;
+}
