@@ -139,6 +139,7 @@ function loadCavern(path, page) {
 
 hidden = [
   "$recycle.bin",
+  "config.msi",
   "desktop.ini",
   "system volume information",
 ]
