@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cavern Remote - Browser</title>
-    <link rel="stylesheet" href="default.css">
+    <title>Cavern Remote</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="default.css">
     <link rel="icon" href="favicon.ico">
     <script src="jquery-3.3.1.slim.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="cavern.js"></script>
+    <script src="index.js"></script>
   </head>
-  <body class="page-file-browser" onload="loadCavern(&quot;[filepatharg]&quot;, 'home');">
+  <body class="page-file-browser" onload="loadCavern(&quot;[filepatharg]&quot;, 'home'); loadHome();">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="index.html">Cavern Remote</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +22,12 @@
         <ul id="navmenu" class="navbar-nav mr-auto"></ul>
       </div>
     </nav>
-    <div class="p-3">
-      <h2>Ready</h2>
+    <div class="container p-3">
+      <h2>Welcome</h2>
       <p>Cavern Remote is ready for operation.</p>
+      <h3>Status</h3>
+      <p>Admin rights are <span id="admin" class="text-warning">denied</span> (<span id="admindesc">some features will not work</span>).
+      Local network response time is <span id="ping">unknown (needs admin rights)</span>.</p>
     </div>
   </body>
 </html>

@@ -16,7 +16,7 @@ function selectShader() {
 }
 
 function sendRequest(uri) {
-  fetch("Cavern.md?" + uri);
+  return fetch("Cavern.md?" + uri);
 }
 
 function selectApo() {
