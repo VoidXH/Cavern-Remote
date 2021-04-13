@@ -24,7 +24,7 @@ function fixBrowser() {
           node.innerHTML = "Xiph";
           continue;
         } else if (node.innerHTML.endsWith("_auto_file")) {
-          var fmt = node.innerHTML.substring(0, node.innerHTML.length - 10);
+          var fmt = node.innerHTML.substr(0, node.innerHTML.length - 10);
           if (fmt === "lrc")
             node.innerHTML = "LyRiCs";
           else if (fmt === "srt")
@@ -48,8 +48,14 @@ function fixBrowser() {
 }
 
 function updateSearch() {
+  var field = get("search");
+  if (get("all").className !== "btn btn-primary") {
+    var oldVal = field.value;
+    setType("all");
+    field.value = oldVal;
+  }
   var table = get("files");
-  var string = get("search").value.toLowerCase();
+  var string = field.value.toLowerCase();
   for (var i = 1, row; row = table.rows[i]; i++) {
     var entry = row.cells[0].childNodes[0].innerHTML.toLowerCase();
     var next = string.length == 0 || entry.includes(string) ? "table-row" : "none";
@@ -129,4 +135,30 @@ function sort(name, asc) {
   }
   lastName = name;
   lastAsc = asc;
+}
+
+filterTypes = [ "all", "vid", "aud" ];
+videoFormats = [ "3gp", "3g2", "avi", "f4v", "flv", "m2ts", "mk3d", "mkv",
+  "mp4", "mpeg", "mov", "mp4", "mxf", "ogv", "ps", "ts", "webm", "wmv" ];
+audioFormats = [ "aac", "aiff", "alac", "cda", "flac", "m4a", "mp3", "ogg",
+  "opus", "wav", "wma", "weba" ];
+
+function setType(type) {
+  get("search").value = "";
+  for (var i = 0; i < filterTypes.length; ++i)
+    get(filterTypes[i]).className = filterTypes[i] == type ? btn1 : btn0;
+  var table = get("files");
+  if (type == "all") {
+    for (var i = 1, row; row = table.rows[i]; i++)
+      if (row.style.display != "table-row")
+        row.style.display = "table-row";
+  } else {
+    var target = type == "vid" ? videoFormats : audioFormats;
+    for (var i = 1, row; row = table.rows[i]; i++) {
+      var entry = row.cells[0].childNodes[0].innerHTML;
+      var next = target.includes(entry.substr(entry.lastIndexOf('.') + 1)) ? "table-row" : "none";
+      if (row.style.display != next)
+        row.style.display = next;
+    }
+  }
 }
