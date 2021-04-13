@@ -17,9 +17,10 @@ and keyboard/mouse control. The Remote is split into separate pages:
 ## Setup
 0. Install MPC-HC. [The recommended version is by clsid2.](https://github.com/clsid2/mpc-hc/releases)
 1. In MPC-HC options, under Web Interface, enable it on any port, and set these:
-	- "Serve pages from" - set this to Cavern Remote's "web" folder.
-	- "CGI handlers" - set this to Cavern Remote's "handler.exe", like:
-	`.md=C:\Cavern Remote\handler\handler.exe;`
+	- "Serve pages from" - tick this, and browse Cavern Remote's "web" folder.
+	- "CGI handlers" - set this to Cavern Remote's "handler.exe", like
+	`.md=C:\Cavern Remote\handler\handler.exe;`, but use the location you unzipped
+  Cavern Remote to.
 2. Check your local IP (open a command prompt and use the `ipconfig` command and
   look for `IPv4 Address`) and port (in MPC-HC's Web Interface settings), and
   merge them like `<IPv4 address>:<port>`. This will be the web address that
