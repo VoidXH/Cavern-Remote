@@ -56,13 +56,14 @@ with the system.
 
 ### Optional: setup Equalizer APO support
 1. In `handler\apopath.txt`, set the location of Equalizer APO's config folder.
-Add any custom presets in the presets folder, but keep in mind that these will
-overwrite the active configuration when selected. Make a backup of `config.txt`
-in Equalizer APO's config folder first, or use Cavern Remote's backup feature on
+2. Add any custom presets in the `presets` folder. These must be a replacement
+to Equalizer APO's main `config.txt`, and keep in mind that these will overwrite
+the active configuration when selected. Make a backup of `config.txt` in
+Equalizer APO's config folder first, or use Cavern Remote's backup feature on
 the Pro page.
-2. Open `web\_cavern.js` in any text editor and add new entries to the
-`apoPresetNames` array. Preserve the correct format, check the other array on
-how to do this properly.
+2. Open `web\_cavern.js` in any text editor and add the names of your presets to
+the `apoPresetNames` list. Preserve the correct format, check the other array on
+how to do this properly, and don't include the .txt extensions.
 
 ## Licence
 The source code, just like the compiled software, is given to you for free, but
