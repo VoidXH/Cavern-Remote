@@ -139,7 +139,7 @@ function sort(name, asc) {
 
 filterTypes = [ "all", "vid", "aud" ];
 videoFormats = [ "3gp", "3g2", "avi", "f4v", "flv", "m2ts", "mk3d", "mkv",
-  "mp4", "mpeg", "mov", "mp4", "mxf", "ogv", "ps", "ts", "webm", "wmv" ];
+  "mp4", "mpeg", "mpg", "mov", "mp4", "mxf", "ogv", "ps", "ts", "webm", "wmv" ];
 audioFormats = [ "aac", "aiff", "alac", "cda", "flac", "m4a", "mp3", "ogg",
   "opus", "wav", "wma", "weba" ];
 
