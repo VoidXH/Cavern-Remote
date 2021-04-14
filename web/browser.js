@@ -5,9 +5,14 @@ hidden = [
   "system volume information",
 ]
 
+filterTypes = [ "all", "vid", "aud" ];
+
+btn1 = "btn btn-primary";
+btn0 = "btn btn-secondary";
+
 function fixBrowser() {
   var table = get("files");
-  for (var i = 0, row; row = table.rows[i]; i++) {
+  for (var i = 0, row; row = table.rows[i]; ++i) {
     var entry = row.cells[0].childNodes[0].innerHTML;
     if (hidden.indexOf(entry.toLowerCase()) >= 0) {
       table.deleteRow(i);
@@ -45,6 +50,55 @@ function fixBrowser() {
       }
     }  
   }
+  setupKeys();
+}
+
+selectedRow = 0;
+
+function setupKeys() {
+  addEventListener('keydown', function(event) {
+    const key = event.key;
+    switch (event.key) {
+      case "ArrowLeft":
+        filterNav(-1)
+        break;
+      case "ArrowRight":
+        filterNav(1)
+        break;
+      case "ArrowUp":
+        navigate(-1);
+        break;
+      case "ArrowDown":
+        navigate(1);
+        break;
+      case "Enter":
+        window.open(get("files").rows[selectedRow].cells[0].childNodes[0].href, "_self");
+        break;
+    }
+  });
+}
+
+function filterNav(dir) {
+  for (var i = 0, filter; filter = filterTypes[i]; ++i) {
+    if (get(filter).className == btn1) {
+      var next = i + dir;
+      if (next >= 0 && next < filterTypes.length)
+        setType(filterTypes[next]);
+      break;
+    }
+  }
+}
+
+function navigate(dir) {
+  var table = get("files");
+  for (var i = Math.max(selectedRow + dir, 0), row; row = table.rows[i]; i += dir) {
+    if (row.style.display != "none") {
+      table.rows[selectedRow].classList.remove("table-primary");
+      selectedRow = i;
+      row.classList.add("table-primary");
+      break;
+    }
+  }
 }
 
 function updateSearch() {
@@ -56,7 +110,7 @@ function updateSearch() {
   }
   var table = get("files");
   var string = field.value.toLowerCase();
-  for (var i = 1, row; row = table.rows[i]; i++) {
+  for (var i = 1, row; row = table.rows[i]; ++i) {
     var entry = row.cells[0].childNodes[0].innerHTML.toLowerCase();
     var next = string.length == 0 || entry.includes(string) ? "table-row" : "none";
     if (row.style.display != next)
@@ -112,8 +166,7 @@ function reverse(rows, from, to) {
 
 lastName = true;
 lastAsc = true;
-btn1 = "btn btn-primary";
-btn0 = "btn btn-secondary";
+
 function sort(name, asc) {
   get("nameup").className = name && asc ? btn1 : btn0;
   get("namedown").className = name && !asc ? btn1 : btn0;
@@ -137,7 +190,6 @@ function sort(name, asc) {
   lastAsc = asc;
 }
 
-filterTypes = [ "all", "vid", "aud" ];
 videoFormats = [ "3gp", "3g2", "avi", "f4v", "flv", "m2ts", "mk3d", "mkv",
   "mp4", "mpeg", "mpg", "mov", "mp4", "mxf", "ogv", "ps", "ts", "webm", "wmv" ];
 audioFormats = [ "aac", "aiff", "alac", "cda", "flac", "m4a", "mp3", "ogg",
@@ -149,14 +201,13 @@ function setType(type) {
     get(filterTypes[i]).className = filterTypes[i] == type ? btn1 : btn0;
   var table = get("files");
   if (type == "all") {
-    for (var i = 1, row; row = table.rows[i]; i++)
+    for (var i = 1, row; row = table.rows[i]; ++i)
       if (row.style.display != "table-row")
         row.style.display = "table-row";
   } else {
     var target = type == "vid" ? videoFormats : audioFormats;
-    for (var i = 1, row; row = table.rows[i]; i++) {
-      var entry = row.cells[0].childNodes[0].innerHTML;
-      var next = target.includes(entry.substr(entry.lastIndexOf('.') + 1)) ? "table-row" : "none";
+    for (var i = 1, row; row = table.rows[i]; ++i) {
+      var next = target.includes(row.className) ? "table-row" : "none";
       if (row.style.display != next)
         row.style.display = next;
     }
