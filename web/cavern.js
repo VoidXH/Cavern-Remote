@@ -8,21 +8,8 @@ function postWith(id, target) {
   postForm(id, 'null', 0);
 }
 
-function selectShader() {
-  var shader = parseInt(get("shaderPresets").value);
-  get("shaderCommand").value = 4201 + shader;
-  postForm(4201 + shader, 'null', 0);
-  document.cookie = "shader=" + shader + ";";
-}
-
 function sendRequest(uri) {
   return fetch("Cavern.md?" + uri);
-}
-
-function selectApo() {
-  var id = parseInt(get("apoPresets").value);
-  document.cookie = "apo=" + id + ";";
-  sendRequest(encodeURIComponent(apoPresetNames[id]));
 }
 
 function getCookie(cname) {
@@ -108,31 +95,5 @@ function loadCavern(path, page) {
       }
     }
     window.onresize();
-  }
-
-  var select = get("shaderPresets");
-  if (select) {
-    var shader = getCookie("shader");
-    for(var i = 0; i < shaderPresetNames.length; ++i) {
-      var el = document.createElement("option");
-      el.textContent = shaderPresetNames[i];
-      el.value = i;
-      if (shader == i)
-        el.selected = "selected";
-      select.appendChild(el);
-    }
-  }
-  
-  select = get("apoPresets");
-  if (select) {
-    var preset = getCookie("apo");
-    for(var i = 0; i < apoPresetNames.length; ++i) {
-      var el = document.createElement("option");
-      el.textContent = apoPresetNames[i];
-      el.value = i;
-      if (preset == i)
-        el.selected = "selected";
-      select.appendChild(el);
-    }
   }
 }
