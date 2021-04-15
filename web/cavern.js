@@ -12,17 +12,25 @@ function sendRequest(uri) {
   return fetch("Cavern.md?" + uri);
 }
 
+function sendCommand(id, extraName = "null", extraValue = 0) {
+  var data = new FormData();
+  data.append('wm_command', id);
+  data.append(extraName, extraValue);
+  fetch("/command.html", {
+    method: "POST",
+    body: new URLSearchParams(data)
+  });
+}
+
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
   for(var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == ' ')
       c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
+    if (c.indexOf(name) == 0)
       return c.substring(name.length, c.length);
-    }
   }
   return "";
 }

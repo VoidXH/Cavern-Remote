@@ -169,106 +169,103 @@
             </select>
           </div>
         </form>
-        <form class="input-group pt-3" action="[commandpath]" method="post">
+        <div class="input-group pt-3">
           <div class="input-group-prepend">
             <label class="input-group-text">Audio</label>
-            <button class="btn btn-secondary" onclick="postWith(953, 'contentCmd'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(953);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(952, 'contentCmd'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(952);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
             </button>
           </div>
-          <input type="hidden" id="contentCmd" name="[wmcname]" value="-1">
           <label class="form-control"></label>
           <div class="input-group-append">
             <label class="input-group-text subs">Subs</label>
             <label class="input-group-text subl">Subtitle</label>
-            <button class="btn btn-secondary" onclick="postWith(956, 'contentCmd'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(956);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
                 <path d="M7.5 1v7h1V1h-1z"/>
                 <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(955, 'contentCmd'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(955);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(954, 'contentCmd'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(954);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
             </button>
           </div>       
-        </form>
-        <form class="input-group pt-3" action="[commandpath]" method="post">
+        </div>
+        <div class="input-group pt-3">
           <div class="input-group-prepend">
             <label class="input-group-text">Screen</label>
           </div>
-          <input type="hidden" id="screenCommand" name="[wmcname]" value="-1">
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(835, 'screenCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(835);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-out" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                 <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
                 <path fill-rule="evenodd" d="M3 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(837, 'screenCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(837);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                 <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
                 <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(839, 'screenCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(839);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-contract" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M.172 15.828a.5.5 0 0 0 .707 0l4.096-4.096V14.5a.5.5 0 1 0 1 0v-3.975a.5.5 0 0 0-.5-.5H1.5a.5.5 0 0 0 0 1h2.768L.172 15.121a.5.5 0 0 0 0 .707zM15.828.172a.5.5 0 0 0-.707 0l-4.096 4.096V1.5a.5.5 0 1 0-1 0v3.975a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 0 0-1h-2.768L15.828.879a.5.5 0 0 0 0-.707z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(840, 'screenCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(840);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(834, 'screenCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(834);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen-exit" viewBox="0 0 16 16">
                 <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z"/>
               </svg>
             </button>
-            <button class="btn btn-primary" onclick="postWith(830, 'screenCommand'); return false;">
+            <button class="btn btn-primary" onclick="sendCommand(830);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
                 <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
               </svg>
             </button>
           </div>       
-        </form>
+        </div>
       </div>
-      <form action="[commandpath]" method="post" id="corrections" class="pt-3 container" style="display:none;">
-        <input type="hidden" id="corrCommand" name="[wmcname]" value="-1">
+      <div id="corrections" class="pt-3 container" style="display:none;">
         <div class="card-deck text-center">
           <div class="card mb-4 box-shadow">
             <div class="card-header">Move image</div>
             <div class="card-body">
               <div class="row justify-content-md-center">
                 <div class="btn-group col col-md-auto" role="group">
-                  <button type="button" class="btn btn-secondary" onclick="postWith(872, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(872);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0v-6z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(870, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(870);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(873, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(873);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
                     </svg>
@@ -277,17 +274,17 @@
               </div>
               <div class="row justify-content-md-center">
                 <div class="btn-group col col-md-auto" role="group">
-                  <button type="button" class="btn btn-secondary" onclick="postWith(868, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(868);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-primary" onclick="postWith(876, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-primary" onclick="sendCommand(876);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(869, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(869);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
@@ -296,17 +293,17 @@
               </div>
               <div class="row justify-content-md-center">
                 <div class="btn-group col col-md-auto" role="group">
-                  <button type="button" class="btn btn-secondary" onclick="postWith(874, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(874);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0v6z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(871, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(871);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(875, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(875);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
                     </svg>
@@ -323,12 +320,12 @@
                   <div class="btn btn-secondary">
                     <iframe src="about:blank" width="16" height="16" frameBorder="0"></iframe>
                   </div>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(866, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(866);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(862, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(862);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
                     </svg>
@@ -337,17 +334,17 @@
               </div>
               <div class="row justify-content-md-center">
                 <div class="btn-group col col-md-auto" role="group">
-                  <button type="button" class="btn btn-secondary" onclick="postWith(865, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(865);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-primary" onclick="postWith(861, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-primary" onclick="sendCommand(861);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(864, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(864);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
@@ -356,12 +353,12 @@
               </div>
               <div class="row justify-content-md-center">
                 <div class="btn-group col col-md-auto" role="group">
-                  <button type="button" class="btn btn-secondary" onclick="postWith(863, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(863);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0v6z"/>
                     </svg>
                   </button>
-                  <button type="button" class="btn btn-secondary" onclick="postWith(867, 'corrCommand'); return false;">
+                  <button type="button" class="btn btn-secondary" onclick="sendCommand(867);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                     </svg>
@@ -380,11 +377,11 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button type="button" class="btn btn-primary" onclick="postWith(850, 'corrCommand'); return false;">Auto</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(851, 'corrCommand'); return false;">4:3</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(853, 'corrCommand'); return false;">16:9</button>
-            <button type="button" class="btn btn-secondary subl" onclick="postWith(855, 'corrCommand'); return false;">1.85</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(854, 'corrCommand'); return false;">2.35</button>
+            <button type="button" class="btn btn-primary" onclick="sendCommand(850);">Auto</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(851);">4:3</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(853);">16:9</button>
+            <button type="button" class="btn btn-secondary subl" onclick="sendCommand(855);">1.85</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(854);">2.35</button>
           </div>
         </div>
         <div class="input-group pt-3">
@@ -393,13 +390,12 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button type="button" class="btn btn-primary" onclick="postWith(906, 'corrCommand'); return false;">-10 ms</button>
-            <button type="button" class="btn btn-primary" onclick="postWith(905, 'corrCommand'); return false;">+10 ms</button>
+            <button type="button" class="btn btn-primary" onclick="sendCommand(906);">-10 ms</button>
+            <button type="button" class="btn btn-primary" onclick="sendCommand(905);">+10 ms</button>
           </div>
         </div>
-      </form>
-      <form action="[commandpath]" method="post" id="dvd" class="pt-3 container" style="display:none;">
-        <input type="hidden" id="dvdCommand" name="[wmcname]" value="-1">
+      </div>
+      <div id="dvd" class="pt-3 container" style="display:none;">
         <div class="card mb-4 box-shadow">
           <div class="card-header">DVD Navigation</div>
           <div class="card-body">
@@ -408,7 +404,7 @@
                 <div class="btn btn-secondary">
                   <iframe src="about:blank" width="16" height="16" frameBorder="0"></iframe>
                 </div>
-                <button type="button" class="btn btn-secondary" onclick="postWith(931, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-secondary" onclick="sendCommand(931);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                   </svg>
@@ -420,17 +416,17 @@
             </div>
             <div class="row justify-content-md-center">
               <div class="btn-group col col-md-auto" role="group">
-                <button type="button" class="btn btn-secondary" onclick="postWith(929, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-secondary" onclick="sendCommand(929);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                   </svg>
                 </button>
-                <button type="button" class="btn btn-primary" onclick="postWith(933, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-primary" onclick="sendCommand(933);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
                     <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435a4.9 4.9 0 0 1 .106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
                   </svg>
                 </button>
-                <button type="button" class="btn btn-secondary" onclick="postWith(930, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-secondary" onclick="sendCommand(930);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                   </svg>
@@ -439,18 +435,18 @@
             </div>
             <div class="row justify-content-md-center">
               <div class="btn-group col col-md-auto" role="group">
-                <button type="button" class="btn btn-secondary" onclick="postWith(934, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-secondary" onclick="sendCommand(934);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
                     <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
                     <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
                   </svg>
                 </button>
-                <button type="button" class="btn btn-secondary" onclick="postWith(932, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-secondary" onclick="sendCommand(932);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                   </svg>
                 </button>
-                <button type="button" class="btn btn-danger" onclick="postWith(935, 'dvdCommand'); return false;">
+                <button type="button" class="btn btn-danger" onclick="sendCommand(935);">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -467,8 +463,8 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button type="button" class="btn btn-primary" onclick="postWith(923, 'dvdCommand'); return false;">Title</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(924, 'dvdCommand'); return false;">Root</button>
+            <button type="button" class="btn btn-primary" onclick="sendCommand(923);">Title</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(924);">Root</button>
           </div>
         </div>
         <div class="input-group pt-3">
@@ -477,8 +473,8 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button type="button" class="btn btn-secondary" onclick="postWith(926, 'dvdCommand'); return false;">Audio</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(925, 'dvdCommand'); return false;">Subtitle</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(926);">Audio</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(925);">Subtitle</button>
           </div>
         </div>
         <div class="input-group pt-3">
@@ -487,19 +483,19 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button type="button" class="btn btn-secondary" onclick="postWith(928, 'dvdCommand'); return false;">Chapters</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(927, 'dvdCommand'); return false;">Angles</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(928);">Chapters</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(927);">Angles</button>
           </div>
         </div>
         <div class="input-group pt-3">
           <div class="input-group-prepend">
             <label class="input-group-text">Audio</label>
-            <button class="btn btn-secondary" onclick="postWith(964, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(964);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(963, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(963);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
@@ -509,18 +505,18 @@
           <div class="input-group-append">
             <label class="input-group-text subs">Subs</label>
             <label class="input-group-text subl">Subtitle</label>
-            <button class="btn btn-secondary" onclick="postWith(967, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(967);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
                 <path d="M7.5 1v7h1V1h-1z"/>
                 <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(966, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(966);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(965, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(965);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
@@ -533,21 +529,20 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(962, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(962);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(961, 'dvdCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(961);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
               </svg>
             </button>
           </div>
         </div>
-      </form>
-      <form action="[commandpath]" method="post" id="pro" class="pt-3 container" style="display:none;">
-        <input type="hidden" id="proCommand" name="[wmcname]" value="-1">
+      </div>
+      <div id="pro" class="pt-3 container" style="display:none;">
         <div class="card mb-4 box-shadow">
           <div class="card-header">Player Menu</div>
           <div class="card-body">
@@ -609,13 +604,13 @@
         </div>
         <div class="row justify-content-md-center">
           <div class="btn-group col col-md-auto" role="group">
-            <button type="button" class="btn btn-secondary" onclick="postWith(919, 'proCommand'); return false;">
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(919);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
                 <path d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z"/>
               </svg>
             </button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(824, 'proCommand'); return false;">Show/Hide Playlist</button>
-            <button type="button" class="btn btn-secondary" onclick="postWith(920, 'proCommand'); return false;">
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(824);">Show/Hide Playlist</button>
+            <button type="button" class="btn btn-secondary" onclick="sendCommand(920);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-forward-fill" viewBox="0 0 16 16">
                 <path d="M15.5 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V8.753l-6.267 3.636c-.54.313-1.233-.066-1.233-.697v-2.94l-6.267 3.636C.693 12.703 0 12.324 0 11.693V4.308c0-.63.693-1.01 1.233-.696L7.5 7.248v-2.94c0-.63.693-1.01 1.233-.696L15 7.248V4a.5.5 0 0 1 .5-.5z"/>
               </svg>
@@ -628,12 +623,12 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(892, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(892);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(891, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(891);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
               </svg>
@@ -646,12 +641,12 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(897, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(897);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(898, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(898);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
               </svg>
@@ -664,9 +659,9 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(827, 'proCommand'); return false;">Minimal</button>
-            <button class="btn btn-secondary" onclick="postWith(828, 'proCommand'); return false;">Compact</button>
-            <button class="btn btn-secondary" onclick="postWith(829, 'proCommand'); return false;">Normal</button>
+            <button class="btn btn-secondary" onclick="sendCommand(827);">Minimal</button>
+            <button class="btn btn-secondary" onclick="sendCommand(828);">Compact</button>
+            <button class="btn btn-secondary" onclick="sendCommand(829);">Normal</button>
           </div>
         </div>
         <div class="input-group pt-3">
@@ -675,33 +670,33 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(817, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(817);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window-sidebar" viewBox="0 0 16 16">
                 <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
                 <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1h12zM1 13V6h4v8H2a1 1 0 0 1-1-1zm5 1V6h9v7a1 1 0 0 1-1 1H6z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(818, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(818);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M3.646 4.146a.5.5 0 0 1 .708 0L8 7.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 11.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(819, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(819);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-segmented-nav" viewBox="0 0 16 16">
                 <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(820, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(820);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(821, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(821);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" onclick="postWith(822, 'proCommand'); return false;">
+            <button class="btn btn-secondary" onclick="sendCommand(822);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16">
                 <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -715,7 +710,7 @@
           </div>
           <label class="form-control"></label>
           <div class="input-group-append">
-            <button class="btn btn-secondary" onclick="postWith(32769, 'proCommand'); return false;">Tearing test</button>
+            <button class="btn btn-secondary" onclick="sendCommand(32769);">Tearing test</button>
           </div>
         </div>
         <div class="input-group pt-3">
@@ -727,7 +722,7 @@
             <button class="btn btn-secondary" onclick="sendRequest('backup=Manual');">Backup Equalizer APO as &quot;Manual&quot;</button>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </body>
 </html>
