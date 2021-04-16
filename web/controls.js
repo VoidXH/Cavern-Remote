@@ -38,6 +38,10 @@ function fillApos() {
 }
 
 function loadControls(path) {
+  if (get("state").innerHTML == "N/A") {
+    location.reload();
+    return;
+  }
   loadCavern(path, 'controls');
   fillShaders();
   fillApos();
