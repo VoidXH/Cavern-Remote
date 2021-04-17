@@ -1,3 +1,7 @@
+#mute {
+  max-width: 64px;
+}
+
 #slider {
 	background: url(img/sliderback.png) no-repeat;
   background-position: center bottom;  
