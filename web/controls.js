@@ -1,3 +1,10 @@
+function mute() {
+  sendCommand(909).then(response => {
+    var field = get("mute");
+    field.innerHTML = field.innerHTML == "" ? "Mute" : "";
+  });
+}
+
 function selectShader() {
   var shader = parseInt(get("shaderPresets").value);
   get("shaderCommand").value = 4201 + shader;
@@ -37,11 +44,13 @@ function fillApos() {
   }
 }
 
-function loadControls(path) {
+function loadControls(path, muted) {
   if (get("state").innerHTML == "N/A") {
     location.reload();
     return;
   }
+  if (muted)
+    get("mute").innerHTML = "Mute";
   loadCavern(path, 'controls');
   fillShaders();
   fillApos();

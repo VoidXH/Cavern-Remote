@@ -14,7 +14,6 @@ var state;
 var pbr;
 var eta;
 var volume;
-var muted; // 1 no sound
 var startTime = new Date().getTime();
 var sliderSize = 300;
 var sliderButtonWidth = 15;
@@ -288,7 +287,7 @@ if (eta === 0) {
     }
 }
 
-function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume, _muted) {
+function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume) {
     "use strict";
     filePath = decodeURIComponent(_filePath);
     curPos = _curPos;
@@ -297,7 +296,6 @@ function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume, 
     pbr = _pbr;
     eta = _eta;
     volume = _volume;
-    muted = _muted;
 
     if (eta > 0) {
         setTimeout(function () {
@@ -324,8 +322,6 @@ function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume, 
     vs2 = getById("v2");
     vs3 = getById("v3");
 
-    if (muted === 1)
-        getById("muted").innerHTML = "Mute";
     vs2.title = volume;
     sb2.title = secondsToTS(curPos, 5);
     s.height = sb1.height = sb2.height = sb3.height = vs.height = vs1.height = vs2.height = vs3.height = 20;
@@ -427,14 +423,6 @@ function onStatus (title, status, pos, posStr, dur, durStr, muted, volume) {
     el = getById("timer");
     if (el && el.innerHTML !== timestr) {
         el.innerHTML = timestr;
-    }
-
-    el = getById("controlvolumemute");
-    if (el) {
-        var url = "url(img/controlvolume" + (muted ? "off" : "on") + ".png)";
-        if (el.style.backgroundImage !== url) {
-            el.style.backgroundImage = url;
-        }
     }
 
     el = getById("controlvolumegrip");

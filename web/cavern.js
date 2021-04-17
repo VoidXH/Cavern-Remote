@@ -16,7 +16,7 @@ function sendCommand(id, extraName = "null", extraValue = 0) {
   var data = new FormData();
   data.append('wm_command', id);
   data.append(extraName, extraValue);
-  fetch("/command.html", {
+  return fetch("/command.html", {
     method: "POST",
     body: new URLSearchParams(data)
   });
