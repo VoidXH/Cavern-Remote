@@ -13,13 +13,9 @@ var len;
 var state;
 var pbr;
 var eta;
-var volume;
 var startTime = new Date().getTime();
 var sliderSize = 300;
 var sliderButtonWidth = 15;
-var vsb = 10;
-var vss = 100;
-var vs;
 var sc = 0;
 var rdirt;
 var Live;
@@ -32,9 +28,6 @@ var m;
 var sb1;
 var sb2;
 var sb3;
-var vs1;
-var vs2;
-var vs3;
 var etaup = false;
 var httpRequestStatus;
 
@@ -249,36 +242,6 @@ function sliderClick(e) {
     return true;
 }
 
-function volumeUpdate(a, b) {
-    "use strict";
-    if (b) {
-        if (a > 100) {
-            volume = 100;
-        } else {
-            volume = a < 0 ? 0 : a;
-        }
-        m = volume * vss / 100;
-    } else {
-        if (a > vss) {
-            m = vss;
-        } else {
-            m = a < 0 ? 0 : a;
-        }
-        volume = m * 100 / vss;
-    }
-    volume = Math.ceil(volume);
-    vs1.width = m;
-    vs3.width = vss - vs1.width;
-    return true;
-}
-
-function volSliderClick(e) {
-    "use strict";
-    var ret = volumeUpdate((window.event ? window.event.clientX - 3 : e.clientX) + document.body.scrollLeft - getOffsetX(vs) - Math.floor(vsb / 2) + sc, false);
-    return ret;
-}
-
-
 if (eta === 0) {
     if (state < 0 && filePath.length > 0) {
         eta = 2;
@@ -295,7 +258,6 @@ function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume) 
     state = _state;
     pbr = _pbr;
     eta = _eta;
-    volume = _volume;
 
     if (eta > 0) {
         setTimeout(function () {
@@ -317,24 +279,15 @@ function controlsInit(_filePath, _curPos, _length, _state, _pbr, _eta, _volume) 
     sb1 = getById("c1");
     sb2 = getById("c2");
     sb3 = getById("c3");
-    vs = getById("v");
-    vs1 = getById("v1");
-    vs2 = getById("v2");
-    vs3 = getById("v3");
 
-    vs2.title = volume;
     sb2.title = secondsToTS(curPos, 5);
-    s.height = sb1.height = sb2.height = sb3.height = vs.height = vs1.height = vs2.height = vs3.height = 20;
+    s.height = sb1.height = sb2.height = sb3.height = 20;
     s.width = sliderSize + (sb2.width = sliderButtonWidth);
-    vs.width = vss + (vs2.width = vsb);
     sb1.onclick = sb2.onclick = sb3.onclick = sliderClick;
-    vs1.onclick = vs2.onclick = vs3.onclick = volSliderClick;
     sas.checked = true;
     cp.innerHTML = cpf.value = secondsToTS(curPos, 5);
-    if (state === 2 && pbr !== 0) {
+    if (state === 2 && pbr !== 0)
         autoplay();
-    }
-    volumeUpdate(volume, true);
     return update(curPos, true);
 }
 
@@ -424,15 +377,6 @@ function onStatus (title, status, pos, posStr, dur, durStr, muted, volume) {
     if (el && el.innerHTML !== timestr) {
         el.innerHTML = timestr;
     }
-
-    el = getById("controlvolumegrip");
-    if (el) {
-        el.title = volume;
-        volume = (getById("controlvolumebar").offsetWidth - el.offsetWidth) * volume / 100;
-        el.style.position = "relative";
-        el.style.top = "2px";
-        el.style.left = Math.floor(volume) + "px";
-    }
 }
 
 function onReadyStateChange() {
@@ -514,28 +458,6 @@ function onSeek(e) {
             percent = 100;
         }
         makeRequest("command.html?wm_command=[setposcommand]&percent=" + percent);
-    }
-}
-
-function onVolume(e) {
-    "use strict";
-    var left = 0;
-    var right = 0;
-    var percent;
-    var cv = getById("controlvolumebar");
-
-    if (cv) {
-        left = getOffsetX(cv) + 3;
-        right = getOffsetX(cv) + cv.offsetWidth - 3;
-    }
-    if (left > 0 && left < right) {
-        percent = 100 * ((window.event ? window.event.clientX : e.clientX) - left) / (right - left);
-        if (percent < 0) {
-            percent = 0;
-        } else if (percent > 100) {
-            percent = 100;
-        }
-        makeRequest("command.html?wm_command=[setvolumecommand]&volume=" + percent);
     }
 }
 

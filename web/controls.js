@@ -5,6 +5,15 @@ function mute() {
   });
 }
 
+function setVolume(command, gain) {
+  get("vol").value = vol = Math.max(0, Math.min(vol + gain, 100));
+  sendCommand(command);
+}
+
+function setFixVolume(cmd) {
+  sendCommand(cmd, "volume", vol = parseInt(get("vol").value));
+}
+
 function selectShader() {
   var shader = parseInt(get("shaderPresets").value);
   get("shaderCommand").value = 4201 + shader;
@@ -24,8 +33,7 @@ function fillShaders() {
   for(var i = 0; i < shaderPresetNames.length; ++i) {
     var el = document.createElement("option");
     el.textContent = shaderPresetNames[i];
-    el.value = i;
-    if (shader == i)
+    if (shader == (el.value = i))
       el.selected = "selected";
     select.appendChild(el);
   }
@@ -37,18 +45,18 @@ function fillApos() {
   for(var i = 0; i < apoPresetNames.length; ++i) {
     var el = document.createElement("option");
     el.textContent = apoPresetNames[i];
-    el.value = i;
-    if (preset == i)
+    if (preset == (el.value = i))
       el.selected = "selected";
     select.appendChild(el);
   }
 }
 
-function loadControls(path, muted) {
+function loadControls(path, volume, muted) {
   if (get("state").innerHTML == "N/A") {
     location.reload();
     return;
   }
+  get("vol").value = vol = volume;
   if (muted)
     get("mute").innerHTML = "Mute";
   loadCavern(path, 'controls');
