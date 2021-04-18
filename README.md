@@ -65,6 +65,10 @@ the Pro page.
 the `apoPresetNames` list. Preserve the correct format, check the other array on
 how to do this properly, and don't include the .txt extensions.
 
+## Development
+Command IDs are available in MPC-HC's key bindings or in its GitHub repo,
+[here](https://github.com/clsid2/mpc-hc/blob/develop/src/mpc-hc/resource.h).
+
 ## Licence
 The source code, just like the compiled software, is given to you for free, but
 without any warranty. It is not guaranteed to work, and the developer is not

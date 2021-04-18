@@ -1,25 +1,14 @@
-function get(id) {
-  return document.getElementById(id);
-}
+get = id => document.getElementById(id);
+sendRequest = uri => fetch("Cavern.md?" + uri);
 
-function postWith(id, target) {
-  if (target != null)
-    get(target).value = id;
-  postForm(id, 'null', 0);
-}
-
-function sendRequest(uri) {
-  return fetch("Cavern.md?" + uri);
-}
-
-function sendCommand(id, extraName = "null", extraValue = 0) {
+function sendCommand(id, extraName = "null", extraValue = 0, reload = false) {
   var data = new FormData();
   data.append('wm_command', id);
   data.append(extraName, extraValue);
-  return fetch("/command.html", {
-    method: "POST",
-    body: new URLSearchParams(data)
-  });
+  var cmd = fetch("/command.html", { method: "POST", body: new URLSearchParams(data) });
+  if (reload)
+    setTimeout(function() { location.reload(); }, 200);
+  return cmd;
 }
 
 function getCookie(cname) {
@@ -93,9 +82,7 @@ function loadCavern(path, page) {
       setVisibility(get(page), param == page));
     window.onresize = function() {
       var page = controlPages[openPage];
-      var maxOpen = Math.floor(window.innerWidth / get(page).clientWidth);
-      if (maxOpen < 1)
-        maxOpen = 1;
+      var maxOpen = Math.max(1, Math.floor(window.innerWidth / get(page).clientWidth));
       var lastOpen = Math.min(openPage + maxOpen, controlPages.length);
       for (var i = 0; i < controlPages.length; ++i) {
         page = controlPages[(openPage + i) % controlPages.length];

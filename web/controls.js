@@ -10,14 +10,33 @@ function setVolume(command, gain) {
   sendCommand(command);
 }
 
-function setFixVolume(cmd) {
-  sendCommand(cmd, "volume", vol = parseInt(get("vol").value));
+setFixVolume = cmd => sendCommand(cmd, "volume", vol = parseInt(get("vol").value));
+timeStampBit = num => Math.floor(num).toString().padStart(2, '0');
+getPlaybackPos = pos => timeStampBit(pos / 3600000) + ':' + timeStampBit(pos % 3600000 / 60000) + ':' + timeStampBit(pos % 60000 / 1000);
+
+function updateTime() {
+  pos = startPos + new Date().getTime() - startTime;
+  if (pos <= get("seek").max)
+    get("time").innerHTML = getPlaybackPos(pos);
+}
+
+function seekTick() {
+  var seek = get("seek"), val;
+  seek.value = pos;
+  get("pos").value = getPlaybackPos(pos);
+  if (pos > parseInt(seek.max))
+    location.reload();
+}
+
+function manualSeek() {
+  if (typeof seeker !== "undefined")
+    window.clearTimeout(seeker);
+  get("pos").value = getPlaybackPos(get("seek").value);
 }
 
 function selectShader() {
   var shader = parseInt(get("shaderPresets").value);
-  get("shaderCommand").value = 4201 + shader;
-  postForm(4201 + shader, 'null', 0);
+  sendCommand(4201 + shader);
   document.cookie = "shader=" + shader + ";";
 }
 
@@ -51,12 +70,17 @@ function fillApos() {
   }
 }
 
-function loadControls(path, volume, muted) {
-  if (get("state").innerHTML == "N/A") {
+function loadControls(path, state, position, duration, volume, muted) {
+  if (get("state").innerHTML == "N/A")
     location.reload();
-    return;
+  if (state == 2) { // TODO: handle [playbackrate]
+    startTime = new Date().getTime();
+    setInterval(updateTime, 100);
+    seeker = setInterval(seekTick, 100);
   }
   get("vol").value = vol = volume;
+  get("seek").max = duration;
+  get("seek").value = startPos = position;
   if (muted)
     get("mute").innerHTML = "Mute";
   loadCavern(path, 'controls');
