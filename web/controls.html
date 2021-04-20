@@ -86,8 +86,8 @@
           </div>
           <div class="form-control" id="mute"></div>
           <div class="form-control bg-light">
-            <div class="w-100 p-1">
-              <input type="range" id="vol" class="w-100" min="0" max="100" value="100">
+            <div class="w-100">
+              <input type="range" id="vol" class="w-100 slider" min="0" max="100" value="100">
             </div>
           </div>
           <button class="btn btn-primary rect" onclick="setFixVolume([setvolumecommand])">
@@ -113,12 +113,12 @@
         <div class="card mt-3 box-shadow">
           <div class="card-header">Seek</div>
           <div class="card-body text-right">
-            <div class="w-100 p-1">
-              <input type="range" id="seek" class="w-100" min="0" max="1" value="0" onchange="manualSeek()">
+            <div class="w-100 pb-3">
+              <input type="range" id="seek" class="w-100 slider" min="0" max="1" value="0" onchange="manualSeek()">
             </div>
             <div class="input-group" style="flex-direction: row-reverse;">
               <div class="input-group-append">
-                <input class="btn btn-primary rcurve" type="submit" value="Go" name="submit" onclick="sendCommand([setposcommand], 'position', get('pos').value); location.reload();"/>
+                <input class="btn btn-primary rcurve" type="submit" value="Go" name="submit" onclick="sendCommand([setposcommand], 'position', get('pos').value, true);"/>
               </div>       
               <div class="input-group-prepend">
                 <input id="pos" class="form-control text-right rflat" onfocus="window.clearTimeout(seeker)" value="[positionstring]" size="5"/>
