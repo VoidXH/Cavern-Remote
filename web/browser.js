@@ -41,26 +41,18 @@ function fixBrowser() {
   setupKeys();
 }
 
+keyHandlers = {
+  "ArrowLeft": () => filterNav(-1),
+  "ArrowRight": () => filterNav(1),
+  "ArrowUp": () => navigate(-1),
+  "ArrowDown": () => navigate(1),
+  "Enter": () => window.open(get("files").rows[selectedRow].cells[0].childNodes[0].href, "_self")
+};
+
 function setupKeys() {
   addEventListener('keydown', function(event) {
-    const key = event.key;
-    switch (event.key) {
-      case "ArrowLeft":
-        filterNav(-1)
-        break;
-      case "ArrowRight":
-        filterNav(1)
-        break;
-      case "ArrowUp":
-        navigate(-1);
-        break;
-      case "ArrowDown":
-        navigate(1);
-        break;
-      case "Enter":
-        window.open(get("files").rows[selectedRow].cells[0].childNodes[0].href, "_self");
-        break;
-    }
+    if (keyHandlers[event.key])
+      keyHandlers[event.key]();
   });
 }
 
@@ -94,9 +86,7 @@ function updateSearch() {
     setType("all");
     field.value = oldVal;
   }
-  var table = get("files");
-  var string = field.value.toLowerCase();
-  for (var i = 1, row; row = table.rows[i]; ++i) {
+  for (var i = 1, table = get("files"), string = field.value.toLowerCase(), row; row = table.rows[i]; ++i) {
     var entry = row.cells[0].childNodes[0].innerHTML.toLowerCase();
     var next = string.length == 0 || entry.includes(string) ? "table-row" : "none";
     if (row.style.display != next)
@@ -117,11 +107,8 @@ function swap(a, b) {
 function partition(rows, low, high, col) {
   var pivot = high, i = low;
   for (var j = low; j <= high; ++j) {
-    var a = rows[j].cells[col].childNodes[0].innerHTML;
-    a = a ? a.toLowerCase() : "";
-    var b = rows[pivot].cells[col].childNodes[0].innerHTML;
-    b = b ? b.toLowerCase() : "";
-    if (a < b)
+    var a = rows[j].cells[col].childNodes[0].innerHTML, b = rows[pivot].cells[col].childNodes[0].innerHTML;
+    if (a.toLowerCase() < b.toLowerCase())
       swap(rows[i++], rows[j]);
   }
   swap(rows[i], rows[high]);
@@ -161,6 +148,7 @@ function sort(name, asc) {
   }
   lastName = name;
   lastAsc = asc;
+  updateSearch();
 }
 
 function setType(type) {

@@ -1,3 +1,4 @@
+controlPages = [ "controls", "corrections", "dvd", "pro" ]
 get = id => document.getElementById(id);
 sendRequest = uri => fetch("Cavern.md?" + uri);
 
@@ -7,14 +8,14 @@ function sendCommand(id, extraName = "null", extraValue = 0, reload = false) {
   data.append(extraName, extraValue);
   var cmd = fetch("/command.html", { method: "POST", body: new URLSearchParams(data) });
   if (reload)
-    setTimeout(function() { location.reload(); }, 200);
+    setTimeout(function() { location.reload(); }, 333);
   return cmd;
 }
 
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
+  for(var i = 0; i < ca.length; ++i) {
     var c = ca[i];
     while (c.charAt(0) == ' ')
       c = c.substring(1);
@@ -51,19 +52,13 @@ function setVisibility(div, state) {
   }
 }
 
-controlPages = [ "controls", "corrections", "dvd", "pro" ]
-
 function loadCavern(path, page) {
   path = decodeURI(path);
-  var slash = path.lastIndexOf('\\');
-  var dot = path.lastIndexOf('.');
+  var slash = path.lastIndexOf('\\'), dot = path.lastIndexOf('.'), title = get("title"), param = new URLSearchParams(window.location.search).get("p");
   if (slash != -1 && dot != -1)
     path = path.substring(slash + 1, dot);
-  var title = get("title");
   if (title)
     title.value = decodeURI(path);
-
-  var param = new URLSearchParams(window.location.search).get("p");
   if (param == null)
     param = page;
 
@@ -81,9 +76,7 @@ function loadCavern(path, page) {
     controlPages.forEach(page => 
       setVisibility(get(page), param == page));
     window.onresize = function() {
-      var page = controlPages[openPage];
-      var maxOpen = Math.max(1, Math.floor(window.innerWidth / get(page).clientWidth));
-      var lastOpen = Math.min(openPage + maxOpen, controlPages.length);
+      var page = controlPages[openPage], maxOpen = Math.max(1, Math.floor(window.innerWidth / get(page).clientWidth)), lastOpen = Math.min(openPage + maxOpen, controlPages.length);
       for (var i = 0; i < controlPages.length; ++i) {
         page = controlPages[(openPage + i) % controlPages.length];
         setVisibility(get(page), i < maxOpen);

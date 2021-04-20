@@ -15,15 +15,13 @@ timeStampBit = num => Math.floor(num).toString().padStart(2, '0');
 getPlaybackPos = pos => timeStampBit(pos / 3600000) + ':' + timeStampBit(pos % 3600000 / 60000) + ':' + timeStampBit(pos % 60000 / 1000);
 
 function updateTime() {
-  pos = startPos + new Date().getTime() - startTime;
-  if (pos <= get("seek").max)
+  if ((pos = startPos + new Date().getTime() - startTime) <= get("seek").max)
     get("time").innerHTML = getPlaybackPos(pos);
 }
 
 function seekTick() {
   var seek = get("seek"), val;
-  seek.value = pos;
-  get("pos").value = getPlaybackPos(pos);
+  get("pos").value = getPlaybackPos(seek.value = pos);
   if (pos > parseInt(seek.max))
     location.reload();
 }
@@ -46,25 +44,12 @@ function selectApo() {
   sendRequest(encodeURIComponent(apoPresetNames[id]));
 }
 
-function fillShaders() {
-  var select = get("shaderPresets");
-  var shader = getCookie("shader");
-  for(var i = 0; i < shaderPresetNames.length; ++i) {
+function fillSelect(control, cookieName, source) {
+  var select = get(control), shader = getCookie(cookieName);
+  for(var i = 0; i < source.length; ++i) {
     var el = document.createElement("option");
-    el.textContent = shaderPresetNames[i];
+    el.textContent = source[i];
     if (shader == (el.value = i))
-      el.selected = "selected";
-    select.appendChild(el);
-  }
-}
-
-function fillApos() {
-  var select = get("apoPresets");
-  var preset = getCookie("apo");
-  for(var i = 0; i < apoPresetNames.length; ++i) {
-    var el = document.createElement("option");
-    el.textContent = apoPresetNames[i];
-    if (preset == (el.value = i))
       el.selected = "selected";
     select.appendChild(el);
   }
@@ -83,7 +68,7 @@ function loadControls(path, state, position, duration, volume, muted) {
   get("seek").value = startPos = position;
   if (muted)
     get("mute").innerHTML = "Mute";
+  fillSelect("shaderPresets", "shader", shaderPresetNames);
+  fillSelect("apoPresets", "apo", apoPresetNames);
   loadCavern(path, 'controls');
-  fillShaders();
-  fillApos();
 }
