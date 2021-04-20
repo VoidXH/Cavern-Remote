@@ -41,7 +41,7 @@ function selectShader() {
 function selectApo() {
   var id = parseInt(get("apoPresets").value);
   document.cookie = "apo=" + id + ";";
-  sendRequest(encodeURIComponent(apoPresetNames[id]));
+  sendRequest("apo=" + encodeURIComponent(apoPresetNames[id]));
 }
 
 function fillSelect(control, cookieName, source) {

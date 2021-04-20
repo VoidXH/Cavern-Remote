@@ -48,7 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClickOnPointTool.cs" />
+    <Compile Include="Commands\ApplyAPOConfigCommand.cs" />
+    <Compile Include="Commands\BackupAPOConfigCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\KeyPressCommand.cs" />
+    <Compile Include="Commands\OpenMenuCommand.cs" />
+    <Compile Include="Tools\ClickOnPointTool.cs" />
+    <Compile Include="Tools\KeyPressTool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
