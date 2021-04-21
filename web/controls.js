@@ -60,8 +60,8 @@ function loadControls(path, state, position, duration, volume, muted) {
     location.reload();
   if (state == 2) { // TODO: handle [playbackrate]
     startTime = new Date().getTime();
-    setInterval(updateTime, 100);
-    seeker = setInterval(seekTick, 100);
+    setInterval(updateTime, 500);
+    seeker = setInterval(seekTick, 500);
   }
   get("vol").value = vol = volume;
   get("seek").max = duration;
