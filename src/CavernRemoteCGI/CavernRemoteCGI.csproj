@@ -55,6 +55,7 @@
     <Compile Include="Commands\OpenMenuCommand.cs" />
     <Compile Include="Commands\ShuffleFolderCommand.cs" />
     <Compile Include="Commands\TestCommand.cs" />
+    <Compile Include="Commands\VolumeControlCommand.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Tools\ClickOnPointTool.cs" />
     <Compile Include="Tools\KeyPressTool.cs" />
