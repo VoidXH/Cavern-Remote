@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 
 namespace CavernRemoteCGI.Commands {
-    public class ShuffleFolder : Command {
+    public class ShuffleFolderCommand : Command {
         public override string Help => "shuffle=<folder>: Play all media files in a folder in random order.";
 
         public override void Run(string path) {

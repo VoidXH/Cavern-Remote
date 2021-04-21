@@ -37,7 +37,10 @@ namespace CavernRemoteCGI {
                         runner = new KeyPressCommand();
                         break;
                     case "shuffle":
-                        runner = new ShuffleFolder();
+                        runner = new ShuffleFolderCommand();
+                        break;
+                    case "test":
+                        runner = new TestCommand();
                         break;
                     default:
                         break;
@@ -52,7 +55,8 @@ namespace CavernRemoteCGI {
                 PrintHelp<ApplyAPOConfigCommand>();
                 PrintHelp<BackupAPOConfigCommand>();
                 PrintHelp<KeyPressCommand>();
-                PrintHelp<ShuffleFolder>();
+                PrintHelp<ShuffleFolderCommand>();
+                PrintHelp<TestCommand>();
             }
         }
     }
