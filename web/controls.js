@@ -71,4 +71,11 @@ function loadControls(path, state, position, duration, volume, muted) {
   fillSelect("shaderPresets", "shader", shaderPresetNames);
   fillSelect("apoPresets", "apo", apoPresetNames);
   loadCavern(path, 'controls');
+  sendRequest("apo=?").then(data => {
+    data.text().then(text => {
+      var idx = apoPresetNames.indexOf(text.substr(text.lastIndexOf('\n', text.length - 2) + 1).trim());
+      if (idx >= 0)
+        $('#apoPresets').val(idx);
+    });
+  });
 }

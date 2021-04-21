@@ -1,14 +1,28 @@
-﻿using System;
+﻿using CavernRemoteCGI.Tools;
+using System;
 using System.IO;
 using System.Reflection;
 
 namespace CavernRemoteCGI.Commands {
     public class ApplyAPOConfigCommand : Command {
+        const string lastKey = "lastapo";
+
         public override string Help => "apo=<filename>: Apply an Equalizer APO configuration file from the \"presets\" folder.";
 
         public override void Run(string fileName) {
+            if (fileName == "?") {
+                Settings settings = new Settings();
+                if (settings.HasKey(lastKey))
+                    Console.WriteLine(settings[lastKey]);
+                else
+                    Console.WriteLine("?");
+                return;
+            }
+
             if (!fileName.EndsWith(".txt"))
-                fileName += ".txt";
+                fileName = fileName.ToLower() + ".txt";
+            else
+                fileName = fileName.ToLower();
 
             string dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
                 apoPath = File.ReadAllText(Path.Combine(dir, "apopath.txt")).Trim(),
@@ -17,9 +31,12 @@ namespace CavernRemoteCGI.Commands {
 
             if (Directory.Exists(presetsPath)) {
                 FileInfo[] configs = new DirectoryInfo(presetsPath).GetFiles();
-                foreach (FileInfo f in configs) {
-                    if (f.Name.ToLower().Equals(fileName)) {
-                        File.Copy(f.FullName, apoPath, true);
+                foreach (FileInfo file in configs) {
+                    if (file.Name.ToLower().Equals(fileName)) {
+                        File.Copy(file.FullName, apoPath, true);
+                        Settings settings = new Settings();
+                        settings.Set(lastKey, fileName.Substring(0, fileName.Length - 4));
+                        settings.Save();
                         return;
                     }
                 }
