@@ -54,7 +54,14 @@ in the Task Scheduler with the following options:
 If you use SVP, it also has to run as admin, and needs a separate task to start
 with the system.
 
-### Optional: setup Equalizer APO support
+### Optional: setup shader selection (picture mode)
+1. Navigate to the Player/Shaders page in MPC-HC's options.
+2. Create you presets here. A recommended source of shaders is the
+[Cinema Shader Pack](https://github.com/VoidXH/Cinema-Shader-Pack).
+3. Open `web\_cavern.js` in any text editor and add the names of your presets to
+the `shaderPresetNames` list. Preserve the format of the array.
+
+### Optional: setup Equalizer APO support (sound mode)
 1. In `handler\apopath.txt`, set the location of Equalizer APO's config folder.
 2. Add any custom presets in the `presets` folder. These must be a replacement
 to Equalizer APO's main `config.txt`, and keep in mind that these will overwrite
