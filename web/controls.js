@@ -1,3 +1,5 @@
+adminFlex = [ "apoPresets", "menuNav", "osVol", "setup" ];
+
 function mute() {
   sendCommand(909).then(response => {
     var field = get("mute");
@@ -76,6 +78,15 @@ function loadControls(path, state, position, duration, volume, muted) {
       var idx = apoPresetNames.indexOf(text.substr(text.lastIndexOf('\n', text.length - 2) + 1).trim());
       if (idx >= 0)
         $('#apoPresets').val(idx);
+    });
+  });
+  sendRequest("test=1").then(data => {
+    data.text().then(text => {
+      if (text.includes("Admin"))
+        for (var i = 0; i < adminFlex.length; ++i) {
+          get(adminFlex[i]).style.display = "flex";
+          get(adminFlex[i] + 'X').style.display = "none";
+        }
     });
   });
 }

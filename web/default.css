@@ -93,6 +93,7 @@
 }
 
 .evenly {
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
@@ -132,5 +133,4 @@
 
 table thead th {
   vertical-align: middle !important;
-  align-items: center;
 }

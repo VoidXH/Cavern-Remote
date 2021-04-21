@@ -24,7 +24,7 @@
       </div>
     </nav>
     <div class="master">
-      <div id="controls" class="container" style="display:none;">
+      <div id="controls" class="container hide">
         <form class="input-group pt-3" action="[browserpath]?path=[filedirarg]" method="post">
           <div class="input-group-prepend">
             <label id="state" class="input-group-text">[statestring]</label>
@@ -193,10 +193,11 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="apoPresets">Sound mode</label>
           </div>
-          <select class="custom-select" id="apoPresets" onchange="selectApo()"></select>
+          <label id="apoPresetsX" class="form-control alert-warning rcurve w-auto">Needs admin</label>
+          <select id="apoPresets" class="custom-select hide" onchange="selectApo()"></select>
         </div>
       </div>
-      <div id="corrections" class="pt-3 container" style="display:none;">
+      <div id="corrections" class="pt-3 container hide">
         <div class="card-deck text-center">
           <div class="card mb-4 box-shadow">
             <div class="card-header">Move image</div>
@@ -311,7 +312,7 @@
           </div>
         </div>
       </div>
-      <div id="dvd" class="pt-3 container" style="display:none;">
+      <div id="dvd" class="pt-3 container hide">
         <div class="card mb-4 box-shadow">
           <div class="card-header">DVD Navigation</div>
           <div class="card-body">
@@ -427,8 +428,8 @@
           </div>
         </div>
       </div>
-      <div id="pro" class="pt-3 container" style="display:none;">
-        <div class="card mb-4 box-shadow">
+      <div id="pro" class="pt-3 container hide">
+        <div id="menuNav"  class="card mb-4 box-shadow hide">
           <div class="card-header">Player Menu</div>
           <div class="card-body">
             <div class="row justify-content-md-center">
@@ -472,6 +473,12 @@
             </div>
           </div>
         </div>
+        <div id="menuNavX" class="card mb-4 box-shadow">
+          <div class="card-header">Player Menu</div>
+          <div class="card-body">
+            <div class="alert alert-warning" role="alert">This feature requires MPC-HC running with administrator privileges.</div>
+          </div>
+        </div>
         <div class="row justify-content-md-center">
           <div class="btn-group col col-md-auto" role="group">
             <button type="button" class="btn btn-secondary" onclick="sendCommand(919)">
@@ -488,7 +495,8 @@
             <label class="input-group-text">OS volume</label>
           </div>
           <label class="form-control"></label>
-          <div class="input-group-append">
+          <label id="osVolX" class="form-control alert-warning rcurve w-auto">Needs admin</label>
+          <div id="osVol" class="input-group-append hide">
             <button class="btn btn-danger" onclick="sendRequest('volume=mute')">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-mute-fill" viewBox="0 0 16 16"><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/></svg>
             </button>
@@ -579,7 +587,8 @@
             <label class="input-group-text">Setup</label>
           </div>
           <label class="form-control"></label>
-          <div class="input-group-append">
+          <label id="setupX" class="form-control alert-warning rcurve w-auto">Needs admin</label>
+          <div id="setup" class="input-group-append hide">
             <button class="btn btn-secondary" onclick="sendRequest('backup=Manual')">Backup Equalizer APO as &quot;Manual&quot;</button>
           </div>
         </div>

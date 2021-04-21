@@ -39,6 +39,12 @@ function fixBrowser() {
     }
   }
   setupKeys();
+  sendRequest("test=1").then(data => {
+    data.text().then(text => {
+      if (text.includes("Admin"))
+        get("shuffle").style.display = "inline-block";
+    });
+  });
 }
 
 keyHandlers = {
