@@ -24,6 +24,9 @@ namespace CavernRemoteCGI {
                 }
                 Command runner = null;
                 switch (split[0]) {
+                    case "altmenu":
+                        runner = new OpenMenuCommand();
+                        break;
                     case "apo":
                         runner = new ApplyAPOConfigCommand();
                         break;
@@ -33,8 +36,8 @@ namespace CavernRemoteCGI {
                     case "key":
                         runner = new KeyPressCommand();
                         break;
-                    case "altmenu":
-                        runner = new OpenMenuCommand();
+                    case "shuffle":
+                        runner = new ShuffleFolder();
                         break;
                     default:
                         break;
@@ -49,6 +52,7 @@ namespace CavernRemoteCGI {
                 PrintHelp<ApplyAPOConfigCommand>();
                 PrintHelp<BackupAPOConfigCommand>();
                 PrintHelp<KeyPressCommand>();
+                PrintHelp<ShuffleFolder>();
             }
         }
     }
