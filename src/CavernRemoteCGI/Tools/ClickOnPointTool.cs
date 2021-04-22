@@ -30,6 +30,15 @@ namespace CavernRemoteCGI.Tools {
             public uint Flags;
             public uint Time;
             public IntPtr ExtraInfo;
+
+            public MOUSEINPUT(int x, int y) {
+                X = x;
+                Y = y;
+                MouseData = 0;
+                Flags = 0;
+                Time = 0;
+                ExtraInfo = IntPtr.Zero;
+            }
         }
 
         public static void ClickOnPoint(IntPtr wndHandle, Point clientPoint) {
