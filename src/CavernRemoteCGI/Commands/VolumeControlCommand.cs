@@ -21,9 +21,11 @@ namespace CavernRemoteCGI.Commands {
             switch (param) {
                 case "up":
                     SendMessage(GetForegroundWindow(), WM_APPCOMMAND, IntPtr.Zero, (IntPtr)APPCOMMAND_VOLUME_UP);
+                    Console.WriteLine(AudioManager.GetMasterVolume() + "%");
                     break;
                 case "down":
                     SendMessage(GetForegroundWindow(), WM_APPCOMMAND, IntPtr.Zero, (IntPtr)APPCOMMAND_VOLUME_DOWN);
+                    Console.WriteLine(AudioManager.GetMasterVolume() + "%");
                     break;
                 case "mute":
                     AudioManager.SetMasterVolumeMute(true);

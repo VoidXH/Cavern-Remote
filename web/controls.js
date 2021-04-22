@@ -62,7 +62,12 @@ function osVolume(command, gain) {
   if (typeof(osVolPct) !== "undefined")
     osVolPct = Math.max(0, Math.min(osVolPct + gain, 100));
   setOSMute(false);
-  sendRequest("volume=" + command);
+  sendRequest("volume=" + command).then(data => {
+    data.text().then(text => {
+      osVolPct = parseInt(text.substr(text.lastIndexOf('\n', text.length - 2) + 1, text.indexOf('%')));
+      setOSMute(false);
+    });
+  });
 }
 
 function loadControls(path, state, position, duration, volume, muted) {
