@@ -1,4 +1,9 @@
 adminFlex = [ "apoPresets", "menuNav", "osVol", "setup" ];
+osMuted = false;
+setFixVolume = cmd => sendCommand(cmd, "volume", vol = parseInt(get("vol").value));
+timeStampBit = num => Math.floor(num).toString().padStart(2, '0');
+getPlaybackPos = pos => timeStampBit(pos / 3600000) + ':' + timeStampBit(pos % 3600000 / 60000) + ':' + timeStampBit(pos % 60000 / 1000);
+setOSMute = state => get("osMute").innerHTML = ((osMuted = state) ? "Muted" : "Unmuted") + (typeof(osVolPct) !== "undefined" ? ", " + osVolPct + '%' : '');
 
 function mute() {
   sendCommand(909).then(response => {
@@ -11,10 +16,6 @@ function setVolume(command, gain) {
   get("vol").value = vol = Math.max(0, Math.min(vol + gain, 100));
   sendCommand(command);
 }
-
-setFixVolume = cmd => sendCommand(cmd, "volume", vol = parseInt(get("vol").value));
-timeStampBit = num => Math.floor(num).toString().padStart(2, '0');
-getPlaybackPos = pos => timeStampBit(pos / 3600000) + ':' + timeStampBit(pos % 3600000 / 60000) + ':' + timeStampBit(pos % 60000 / 1000);
 
 function updateTime() {
   if ((pos = startPos + new Date().getTime() - startTime) <= get("seek").max)
@@ -57,6 +58,13 @@ function fillSelect(control, cookieName, source) {
   }
 }
 
+function osVolume(command, gain) {
+  if (typeof(osVolPct) !== "undefined")
+    osVolPct = Math.max(0, Math.min(osVolPct + gain, 100));
+  setOSMute(false);
+  sendRequest("volume=" + command);
+}
+
 function loadControls(path, state, position, duration, volume, muted) {
   if (get("state").innerHTML == "N/A")
     location.reload();
@@ -87,6 +95,13 @@ function loadControls(path, state, position, duration, volume, muted) {
           get(adminFlex[i]).style.display = "flex";
           get(adminFlex[i] + 'X').style.display = "none";
         }
+    });
+  });
+  sendRequest("volume=?").then(data => {
+    data.text().then(text => {
+      var split = text.substr(text.lastIndexOf('\n', text.length - 2) + 1).split(',');
+      osVolPct = parseInt(split[1].trim().slice(0, -1));
+      setOSMute(split[0] == "Muted");
     });
   });
 }

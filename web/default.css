@@ -40,6 +40,12 @@
   .subl {
     display: none;
   }
+  
+  #osMute {
+    font-size: 10.5px;
+    height: 40px;
+    padding-top: 4px;
+  }
 }
 
 .dirname {
