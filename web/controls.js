@@ -88,17 +88,12 @@ function loadControls(path, state, position, duration, volume, muted) {
         $('#apoPresets').val(idx);
     });
   });
-  sendRequest("test=1").then(data => {
-    data.text().then(text => {
-      if (text.includes("Admin"))
-        for (var i = 0; i < adminFlex.length; ++i) {
-          get(adminFlex[i]).style.display = "flex";
-          get(adminFlex[i] + 'X').style.display = "none";
-        }
-    });
-  });
   sendRequest("volume=?").then(data => {
     data.text().then(text => {
+      for (var i = 0; i < adminFlex.length; ++i) {
+        get(adminFlex[i]).style.display = "flex";
+        get(adminFlex[i] + 'X').style.display = "none";
+      }
       var split = text.substr(text.lastIndexOf('\n', text.length - 2) + 1).split(',');
       osVolPct = parseInt(split[1].trim().slice(0, -1));
       setOSMute(split[0] == "Muted");
