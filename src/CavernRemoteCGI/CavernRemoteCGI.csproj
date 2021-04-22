@@ -56,6 +56,12 @@
     <Compile Include="Commands\ShuffleFolderCommand.cs" />
     <Compile Include="Commands\TestCommand.cs" />
     <Compile Include="Commands\VolumeControlCommand.cs" />
+    <Compile Include="CoreAudio\AudioManager.cs" />
+    <Compile Include="CoreAudio\Enums.cs" />
+    <Compile Include="CoreAudio\IAudioEndpointVolume.cs" />
+    <Compile Include="CoreAudio\IMMDevice.cs" />
+    <Compile Include="CoreAudio\IMMDeviceEnumerator.cs" />
+    <Compile Include="CoreAudio\MMDeviceEnumerator.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Tools\ClickOnPointTool.cs" />
     <Compile Include="Tools\KeyPressTool.cs" />
