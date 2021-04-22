@@ -3,22 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#007bff">
     <title>Cavern Remote</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="default.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="manifest" href="manifest.webmanifest">
     <script src="jquery-3.3.1.slim.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="cavern.js"></script>
     <script src="index.js"></script>
   </head>
-  <body class="page-file-browser" onload="loadCavern(&quot;[filepatharg]&quot;, 'home'); loadHome();">
+  <body class="page-file-browser" onload="loadCavern('', 'home'); loadHome();">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="index.html">Cavern Remote</a>
+      <a class="navbar-brand" href="index.html"><img src="img/logo.png"/ height="18"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarColor02">
+      <div class="show navbar-collapse" id="navbarColor02">
         <ul id="navmenu" class="navbar-nav mr-auto"></ul>
       </div>
     </nav>

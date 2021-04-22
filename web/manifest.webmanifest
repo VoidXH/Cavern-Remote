@@ -1,0 +1,22 @@
+{
+  "background_color": "#007bff",
+  "description": "Advanced MPC-HC remote control.",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/cavern512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/cavern192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "name": "Cavern Remote",
+  "short_name": "Cavern Remote",
+  "start_url": "index.html"
+}
