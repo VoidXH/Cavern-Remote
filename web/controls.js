@@ -71,8 +71,8 @@ function osVolume(command, gain) {
 }
 
 function loadControls(path, state, position, duration, volume, muted) {
-  if (get("state").innerHTML == "N/A")
-    location.reload();
+  if (get("state").innerHTML == "N/A" && new URLSearchParams(window.location.search).get("na") == null)
+    location.replace(window.location.href + (window.location.href.includes("?") ? '&' : '?') + "na=1");
   if (state == 2) { // TODO: handle [playbackrate]
     startTime = new Date().getTime();
     setInterval(updateTime, 500);
