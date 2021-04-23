@@ -17,11 +17,33 @@
   display: flex;
 }
 
+.splat {
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.splat div {
+  width: auto;
+}
+
+.center-input div:first-child {
+  margin-left: auto;
+}
+
+.center-input div:last-child {
+  margin-right: auto;
+}
+
 .rect {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.lcurve {
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
 }
 
 .rcurve {

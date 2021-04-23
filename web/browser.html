@@ -45,15 +45,16 @@
         <button class="btn btn-primary" onclick="get('search').value = ''; updateSearch();">Reset</button>
       </div>
     </div>
-    <div class="input-group pt-3 pl-3 pr-3">
-      <div class="input-group-prepend">
+    <div class="evenly splat pl-3 pr-3">
+      <div class="input-group">
         <label class="input-group-text">Media type</label>
       </div>
-      <label class="form-control"></label>
-      <div class="input-group-append">
-        <button id="all" class="btn btn-primary" onclick="setType('all')">All</button>
-        <button id="vid" class="btn btn-secondary" onclick="setType('vid')">Video</button>
-        <button id="aud" class="btn btn-secondary" onclick="setType('aud')">Audio</button>
+      <div class="input-group">
+        <div class="input-group-append">
+          <button id="all" class="btn btn-primary lcurve" onclick="setType('all')">All</button>
+          <button id="vid" class="btn btn-secondary" onclick="setType('vid')">Video</button>
+          <button id="aud" class="btn btn-secondary" onclick="setType('aud')">Audio</button>
+        </div>
       </div>
     </div>
     <div class="p-3">
