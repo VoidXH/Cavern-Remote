@@ -92,9 +92,10 @@ function loadControls(path, state, position, duration, volume, muted) {
         get(adminFlex[i]).style.display = "flex";
         get(adminFlex[i] + 'X').style.display = "none";
       }
-      var idx = apoPresetNames.indexOf(text.substr(text.lastIndexOf('\n', text.length - 2) + 1).trim());
-      if (idx >= 0)
-        $('#apoPresets').val(idx);
+      var preset = text.substr(text.lastIndexOf('\n', text.length - 2) + 1).trim();
+      for (var i = 0; i < apoPresetNames.length; ++i)
+        if (apoPresetNames[i].toLowerCase() == preset)
+          $('#apoPresets').val(i);
     });
   });
   sendRequest("volume=?").then(data => {
