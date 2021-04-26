@@ -39,6 +39,7 @@ function selectShader() {
   var shader = parseInt(get("shaderPresets").value);
   sendCommand(4201 + shader);
   document.cookie = "shader=" + shader + ";";
+  sendRequest("var=lastshader;" + shader);
 }
 
 function selectApo() {
@@ -103,6 +104,13 @@ function loadControls(path, state, position, duration, volume, muted) {
       var split = text.substr(text.lastIndexOf('\n', text.length - 2) + 1).split(',');
       osVolPct = parseInt(split[1].trim().slice(0, -1));
       setOSMute(split[0] == "Muted");
+    });
+  });
+  sendRequest("var=lastshader;?").then(data => {
+    data.text().then(text => {
+      var id = parseInt(text.substr(text.lastIndexOf('\n', text.length - 2) + 1).trim());
+      if (!isNaN(id))
+        $('#shaderPresets').val(id);
     });
   });
 }

@@ -55,6 +55,7 @@
     <Compile Include="Commands\OpenMenuCommand.cs" />
     <Compile Include="Commands\ShuffleFolderCommand.cs" />
     <Compile Include="Commands\TestCommand.cs" />
+    <Compile Include="Commands\VariableCommand.cs" />
     <Compile Include="Commands\VolumeControlCommand.cs" />
     <Compile Include="CoreAudio\AudioManager.cs" />
     <Compile Include="CoreAudio\Enums.cs" />

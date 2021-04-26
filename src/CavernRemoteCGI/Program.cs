@@ -42,6 +42,9 @@ namespace CavernRemoteCGI {
                     case "test":
                         runner = new TestCommand();
                         break;
+                    case "var":
+                        runner = new VariableCommand();
+                        break;
                     case "volume":
                         runner = new VolumeControlCommand();
                         break;
@@ -60,6 +63,7 @@ namespace CavernRemoteCGI {
                 PrintHelp<KeyPressCommand>();
                 PrintHelp<ShuffleFolderCommand>();
                 PrintHelp<TestCommand>();
+                PrintHelp<VariableCommand>();
                 PrintHelp<VolumeControlCommand>();
             }
         }
