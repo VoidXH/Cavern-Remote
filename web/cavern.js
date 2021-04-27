@@ -53,12 +53,12 @@ function setVisibility(div, state) {
 }
 
 function loadCavern(path, page) {
-  path = decodeURI(path);
+  path = decodeURIComponent(path);
   var slash = path.lastIndexOf('\\'), dot = path.lastIndexOf('.'), title = get("title"), param = new URLSearchParams(window.location.search).get("p");
   if (slash != -1 && dot != -1)
     path = path.substring(slash + 1, dot);
   if (title)
-    title.value = decodeURI(path);
+    title.value = path;
   if (param == null)
     param = page;
 
