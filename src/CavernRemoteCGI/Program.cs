@@ -16,50 +16,14 @@ namespace CavernRemoteCGI {
                 command = WebUtility.UrlDecode(query).ToLower();
             else if (args.Length != 0)
                 command = args[0];
-            if (command.Contains("=")) {
-                string[] split = command.Split('=');
-                if (split.Length == 1) {
-                    Console.WriteLine("Value not given.");
-                    return;
-                }
-                Command runner = null;
-                switch (split[0]) {
-                    case "altmenu":
-                        runner = new OpenMenuCommand();
-                        break;
-                    case "apo":
-                        runner = new ApplyAPOConfigCommand();
-                        break;
-                    case "backup":
-                        runner = new BackupAPOConfigCommand();
-                        break;
-                    case "key":
-                        runner = new KeyPressCommand();
-                        break;
-                    case "shuffle":
-                        runner = new ShuffleFolderCommand();
-                        break;
-                    case "test":
-                        runner = new TestCommand();
-                        break;
-                    case "var":
-                        runner = new VariableCommand();
-                        break;
-                    case "volume":
-                        runner = new VolumeControlCommand();
-                        break;
-                    default:
-                        break;
-                }
-                if (runner != null)
-                    runner.Run(split[1]);
-                else
-                    Console.WriteLine($"Unknown command: {split[0]}.");
-            } else {
+            if (command.Contains("="))
+                Command.RunInput(command);
+            else {
                 Console.WriteLine("Available commands for the Cavern Remote CGI Handler:");
                 PrintHelp<OpenMenuCommand>();
                 PrintHelp<ApplyAPOConfigCommand>();
                 PrintHelp<BackupAPOConfigCommand>();
+                PrintHelp<DoubleRelayCommand>();
                 PrintHelp<KeyPressCommand>();
                 PrintHelp<ShuffleFolderCommand>();
                 PrintHelp<TestCommand>();
