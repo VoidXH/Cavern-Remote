@@ -37,13 +37,13 @@ namespace CavernRemoteCGI.Commands {
             Firmata board;
             try {
                 board = new Firmata(vars[0]);
-            } catch (UnauthorizedAccessException _) {
+            } catch (UnauthorizedAccessException) {
                 Console.WriteLine("Access is denied to the port.");
                 return;
-            } catch (ArgumentException _) {
+            } catch (ArgumentException) {
                 Console.WriteLine("The port name does not begin with \"COM\", or the file type of the port is not supported.");
                 return;
-            } catch (InvalidOperationException _) {
+            } catch (InvalidOperationException) {
                 Console.WriteLine("The specified port is used by another application.");
                 return;
             } catch {

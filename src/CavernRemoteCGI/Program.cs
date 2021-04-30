@@ -25,6 +25,7 @@ namespace CavernRemoteCGI {
                 PrintHelp<BackupAPOConfigCommand>();
                 PrintHelp<DoubleRelayCommand>();
                 PrintHelp<KeyPressCommand>();
+                PrintHelp<MultipleCommand>();
                 PrintHelp<ShuffleFolderCommand>();
                 PrintHelp<TestCommand>();
                 PrintHelp<VariableCommand>();

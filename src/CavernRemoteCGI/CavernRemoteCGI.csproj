@@ -53,6 +53,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\DoubleRelayCommand.cs" />
     <Compile Include="Commands\KeyPressCommand.cs" />
+    <Compile Include="Commands\MultipleCommand.cs" />
     <Compile Include="Commands\OpenMenuCommand.cs" />
     <Compile Include="Commands\ShuffleFolderCommand.cs" />
     <Compile Include="Commands\TestCommand.cs" />

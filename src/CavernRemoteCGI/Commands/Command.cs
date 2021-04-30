@@ -10,13 +10,14 @@ namespace CavernRemoteCGI.Commands {
         public static string GetHelp<T>() where T : Command, new() => new T().Help;
 
         public static void RunInput(string command) {
-            string[] split = command.Split('=');
-            if (split.Length == 1) {
+            int index = command.IndexOf('=');
+            if (index == -1) {
                 Console.WriteLine("Value not given.");
                 return;
             }
             Command runner = null;
-            switch (split[0]) {
+            string split = command.Substring(0, index);
+            switch (split) {
                 case "altmenu":
                     runner = new OpenMenuCommand();
                     break;
@@ -31,6 +32,9 @@ namespace CavernRemoteCGI.Commands {
                     break;
                 case "key":
                     runner = new KeyPressCommand();
+                    break;
+                case "multiple":
+                    runner = new MultipleCommand();
                     break;
                 case "shuffle":
                     runner = new ShuffleFolderCommand();
@@ -48,9 +52,9 @@ namespace CavernRemoteCGI.Commands {
                     break;
             }
             if (runner != null)
-                runner.Run(split[1]);
+                runner.Run(command.Substring(index + 1));
             else
-                Console.WriteLine($"Unknown command: {split[0]}.");
+                Console.WriteLine($"Unknown command: {split}.");
         }
 
         protected static Process[] GetPlayer() {
