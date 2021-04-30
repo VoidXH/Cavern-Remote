@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#007bff">
+    <title>Cavern Remote - Ambient lighting</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="default.css">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="manifest" href="manifest.webmanifest">
+    <script src="jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="_cavern.js"></script>
+    <script src="cavern.js"></script>
+    <script src="lights.js"></script>
+  </head>
+  <body class="page-file-browser" onload="loadCavern('', 'lights');">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html"><img src="img/logo.png"/ height="18"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul id="navmenu" class="navbar-nav mr-auto"></ul>
+      </div>
+    </nav>
+    <div class="container p-3">
+      <div class="evenly splat">
+        <div class="input-group">
+          <label class="input-group-text">Master</label>
+        </div>
+        <div class="input-group">
+          <div class="input-group-append">
+            <button class="btn btn-dark lcurve" onclick="setLights(1, 0, 0, 0)">Full off</button>
+            <button class="btn btn-secondary" onclick="setLights(1, 1, 1, 1)">Full on</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4 box-shadow">
+        <div class="card-header">Color picker</div>
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="btn-group col col-auto" role="group">
+              <button type="button" class="btn" style="background-color: #f00;" onclick="setLights(1, 1, 0, 0)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+              <button type="button" class="btn" style="background-color: #0f0;" onclick="setLights(1, 0, 1, 0)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+              <button type="button" class="btn" style="background-color: #00f;" onclick="setLights(1, 0, 0, 1)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="btn-group col col-auto" role="group">
+              <button type="button" class="btn" style="background-color: #ff0;" onclick="setLights(1, 1, 1, 0)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+              <button type="button" class="btn" style="background-color: #0ff;" onclick="setLights(1, 0, 1, 1)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+              <button type="button" class="btn" style="background-color: #f0f;" onclick="setLights(1, 1, 0, 1)">
+                <img src="img/1pix.png" width="16"/>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

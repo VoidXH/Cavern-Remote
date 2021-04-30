@@ -68,7 +68,7 @@ function loadCavern(path, page) {
   addMenuLink(menu, "Corrections", "controls.html?p=corrections", param == "corrections");
   addMenuLink(menu, "DVD", "controls.html?p=dvd", param == "dvd");
   addMenuLink(menu, "Pro", "controls.html?p=pro", param == "pro");
-  //addMenuLink(menu, "Ambient lighting", "#", param == "lights");
+  addMenuLink(menu, "Lights", "lights.html", param == "lights");
   addMenuLink(menu, "Help", "http://cavern.sbence.hu/cavern/doc.php?p=Remote", false);
   addMenuLink(menu, "About", "http://cavern.sbence.hu/", false);
 
