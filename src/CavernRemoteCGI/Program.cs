@@ -4,11 +4,6 @@ using System.Net;
 
 namespace CavernRemoteCGI {
     class Program {
-        static void PrintHelp<T>() where T: Command, new() {
-            Console.Write("\t");
-            Console.WriteLine(Command.GetHelp<T>());
-        }
-
         static void Main(string[] args) {
             string query = Environment.GetEnvironmentVariable("QUERY_STRING");
             string command = string.Empty;
@@ -18,19 +13,8 @@ namespace CavernRemoteCGI {
                 command = args[0];
             if (command.Contains("="))
                 Command.RunInput(command);
-            else {
-                Console.WriteLine("Available commands for the Cavern Remote CGI Handler:");
-                PrintHelp<OpenMenuCommand>();
-                PrintHelp<ApplyAPOConfigCommand>();
-                PrintHelp<BackupAPOConfigCommand>();
-                PrintHelp<DoubleRelayCommand>();
-                PrintHelp<KeyPressCommand>();
-                PrintHelp<MultipleCommand>();
-                PrintHelp<ShuffleFolderCommand>();
-                PrintHelp<TestCommand>();
-                PrintHelp<VariableCommand>();
-                PrintHelp<VolumeControlCommand>();
-            }
+            else
+                CommandList.Print();
         }
     }
 }

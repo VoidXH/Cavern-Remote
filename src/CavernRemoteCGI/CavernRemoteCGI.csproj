@@ -51,6 +51,7 @@
     <Compile Include="Commands\ApplyAPOConfigCommand.cs" />
     <Compile Include="Commands\BackupAPOConfigCommand.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandList.cs" />
     <Compile Include="Commands\DoubleRelayCommand.cs" />
     <Compile Include="Commands\KeyPressCommand.cs" />
     <Compile Include="Commands\MultipleCommand.cs" />
