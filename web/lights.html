@@ -25,19 +25,19 @@
         <ul id="navmenu" class="navbar-nav mr-auto"></ul>
       </div>
     </nav>
-    <div class="container p-3">
+    <div class="container">
       <div class="evenly splat">
         <div class="input-group">
           <label class="input-group-text">Master</label>
         </div>
         <div class="input-group">
           <div class="input-group-append">
-            <button class="btn btn-dark lcurve" onclick="setLights(1, 0, 0, 0)">Full off</button>
-            <button class="btn btn-secondary" onclick="setLights(1, 1, 1, 1)">Full on</button>
+            <button class="btn btn-dark lcurve" onclick="setLights(1, 0, 0, 0)">Standby</button>
+            <button class="btn btn-secondary" onclick="setLights(1, 1, 1, 1)">White</button>
           </div>
         </div>
       </div>
-      <div class="card mt-4 box-shadow">
+      <div class="card mt-3 box-shadow">
         <div class="card-header">Color picker</div>
         <div class="card-body">
           <div class="row justify-content-center">
@@ -64,6 +64,55 @@
               <button type="button" class="btn" style="background-color: #f0f;" onclick="setLights(1, 1, 0, 1)">
                 <img src="img/1pix.png" width="16"/>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3 box-shadow">
+        <div class="card-header">Manual relay control</div>
+        <div class="card-body">
+          <div class="evenly splat pt-0">
+            <div class="input-group">
+              <label class="input-group-text">Power</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-secondary lcurve" onclick="Vcc=1; sendRequest(setVccR());">Pass</button>
+                <button class="btn btn-danger" onclick="Vcc=0; sendRequest(setVccR());">Cut</button>
+              </div>
+            </div>
+          </div>
+          <div class="evenly splat">
+            <div class="input-group">
+              <label class="input-group-text">Red</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-secondary lcurve" onclick="R=0; sendRequest(setVccR());">Off</button>
+                <button class="btn btn-primary" onclick="R=1; sendRequest(setVccR());">On</button>
+              </div>
+            </div>
+          </div>
+          <div class="evenly splat">
+            <div class="input-group">
+              <label class="input-group-text">Green</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-secondary lcurve" onclick="G=0; sendRequest(setGB());">Off</button>
+                <button class="btn btn-primary" onclick="G=1; sendRequest(setGB());">On</button>
+              </div>
+            </div>
+          </div>
+          <div class="evenly splat">
+            <div class="input-group">
+              <label class="input-group-text">Blue</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-secondary lcurve" onclick="B=0; sendRequest(setGB());">Off</button>
+                <button class="btn btn-primary" onclick="B=1; sendRequest(setGB());">On</button>
+              </div>
             </div>
           </div>
         </div>
