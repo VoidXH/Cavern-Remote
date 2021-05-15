@@ -69,7 +69,7 @@ to Equalizer APO's main `config.txt`, and keep in mind that these will overwrite
 the active configuration when selected. Make a backup of `config.txt` in
 Equalizer APO's config folder first, or use Cavern Remote's backup feature on
 the Pro page.
-2. Open `web\_cavern.js` in any text editor and add the names of your presets to
+3. Open `web\_cavern.js` in any text editor and add the names of your presets to
 the `apoPresetNames` list. Preserve the correct format, check the other array on
 how to do this properly, and don't include the .txt extensions.
 
