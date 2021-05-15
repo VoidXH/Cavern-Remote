@@ -4,15 +4,16 @@ hosted in MPC-HC with a responsive UI. It takes the default MPC-HC remote
 website and extends the browser and controller with new features. Next to basic
 player controls, it adds a shader preset selector, Equalizer APO configurator,
 and keyboard/mouse control. The Remote is split into separate pages:
-- **Browser**: Browse your local and labeled network drives for files to play.
-- **Controls**: Basic playback info and controls with picture mode (shader
+* **Browser**: Browse your local and labeled network drives for files to play.
+* **Controls**: Basic playback info and controls with picture mode (shader
   preset) and sound mode (audio preset) selection, audio/subtitle track
   switching, and screen resizing.
-- **Corrections**: Move or resize the screen if the content does not fit
+* **Corrections**: Move or resize the screen if the content does not fit
   correctly. Audio delay is also adjustable from here.
-- **DVD**: DVD menu navigation and audio/subtitle/angle selectors.
-- **Pro**: Player menu control, playlist handling, fine controls, debug and
+* **DVD**: DVD menu navigation and audio/subtitle/angle selectors.
+* **Pro**: Player menu control, playlist handling, fine controls, debug and
   setup options.
+* **Lights**: Control Arduino-based ambiend lighting solutions.
 
 ## Setup
 0. Install MPC-HC. [The recommended version is by clsid2.](https://github.com/clsid2/mpc-hc/releases)
@@ -47,9 +48,9 @@ file browser: `%appdata%\Microsoft\Windows\Start Menu\Programs\Startup`.
 For applications that run with admin rights, the Start Menu version will not
 work, nor adding an entry in the registry. This applications require a new task
 in the Task Scheduler with the following options:
-- Run with the highest privileges (tick on the first tab)
-- On the Triggers tab, add a new trigger after login.
-- On the Actions tab, add a new action to open MPC-HC.
+* Run with the highest privileges (tick on the first tab)
+* On the Triggers tab, add a new trigger after login.
+* On the Actions tab, add a new action to open MPC-HC.
 
 If you use SVP, it also has to run as admin, and needs a separate task to start
 with the system.
@@ -71,6 +72,23 @@ the Pro page.
 2. Open `web\_cavern.js` in any text editor and add the names of your presets to
 the `apoPresetNames` list. Preserve the correct format, check the other array on
 how to do this properly, and don't include the .txt extensions.
+
+### Optional: setup ambient lighting control
+The ambient lighting is using the Firmata protocol. Use a board on a serial port
+that supports Firmata, Arduino is one of them. In case of any Arduino, a
+StandardFirmata example should be loaded on the target. All configuration is in
+`web\_cavern.js`, including the port and the controlled pins. Cavern Remote only
+controls 2 relays with 2 ports or 4 relays with pairs in parallel. The wiring
+guide is:
+* The `relayPowerRed` and `relayGreenBlue` pins should connect to the Vcc pins
+  of +12V/red and green/blue relays' respectively. If you use single relays,
+  split the Vcc between both enable pins.
+* Wire the R/G/B relays to NO and +12V to NC.
+* JDVcc should be supplied from a different source than the Vcc pins for current
+  distribution. Ground distribution should also be considered between all ground
+  pins of the Arduino.
+* The other pin variables set the signal pins which control each relay (active
+  high). Also set and check the COM port.
 
 ## Development
 Command IDs are available in MPC-HC's key bindings or in its GitHub repo,
