@@ -1,5 +1,6 @@
+handler/Cavern Remote Handler.ini
+handler/handler.exe
 handler/presets/manual.txt
 src/.vs/
 src/CavernRemoteCGI/bin/
 src/CavernRemoteCGI/obj/
-handler/Cavern Remote Handler.ini
