@@ -17,8 +17,9 @@ namespace CavernRemoteCGI.Tools {
                 string[] settings = File.ReadAllLines(path);
                 for (int line = 0; line < settings.Length; ++line) {
                     int index = settings[line].IndexOf('=');
-                    if (index != -1)
+                    if (index != -1) {
                         dict.Add(settings[line].Substring(0, index), settings[line].Substring(index + 1));
+                    }
                 }
             }
         }
@@ -26,17 +27,19 @@ namespace CavernRemoteCGI.Tools {
         public bool HasKey(string key) => dict.ContainsKey(key);
 
         public void Set(string key, string value) {
-            if (dict.ContainsKey(key))
+            if (dict.ContainsKey(key)) {
                 dict[key] = value;
-            else
+            } else {
                 dict.Add(key, value);
+            }
         }
 
         public void Save() {
             string[] lines = new string[dict.Count];
             int i = 0;
-            foreach (KeyValuePair<string, string> pair in dict)
+            foreach (KeyValuePair<string, string> pair in dict) {
                 lines[i++] = $"{pair.Key}={pair.Value}";
+            }
             File.WriteAllLines(path, lines);
         }
     }

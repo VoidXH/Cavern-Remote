@@ -1,7 +1,8 @@
-﻿using CavernRemoteCGI.Tools;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
+
+using CavernRemoteCGI.Tools;
 
 namespace CavernRemoteCGI.Commands {
     public class ApplyAPOConfigCommand : Command {
@@ -12,17 +13,19 @@ namespace CavernRemoteCGI.Commands {
         public override void Run(string fileName) {
             if (fileName == "?") {
                 Settings settings = new Settings();
-                if (settings.HasKey(lastKey))
+                if (settings.HasKey(lastKey)) {
                     Console.WriteLine(settings[lastKey]);
-                else
+                } else {
                     Console.WriteLine("?");
+                }
                 return;
             }
 
-            if (!fileName.EndsWith(".txt"))
+            if (!fileName.EndsWith(".txt")) {
                 fileName = fileName.ToLower() + ".txt";
-            else
+            } else {
                 fileName = fileName.ToLower();
+            }
 
             string dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
                 apoPath = File.ReadAllText(Path.Combine(dir, "apopath.txt")).Trim(),
@@ -41,8 +44,9 @@ namespace CavernRemoteCGI.Commands {
                     }
                 }
                 Console.WriteLine("The supplied configuration file doesn't exist.");
-            } else
+            } else {
                 Console.WriteLine("The \"presets\" folder doesn't exist in the same folder with this application. Please create it.");
+            }
         }
     }
 }

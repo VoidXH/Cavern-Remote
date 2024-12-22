@@ -54,6 +54,7 @@
     <Compile Include="Commands\CommandList.cs" />
     <Compile Include="Commands\DoubleRelayCommand.cs" />
     <Compile Include="Commands\KeyPressCommand.cs" />
+    <Compile Include="Commands\ScreenFileCommand.cs" />
     <Compile Include="Commands\MultipleCommand.cs" />
     <Compile Include="Commands\OpenMenuCommand.cs" />
     <Compile Include="Commands\ShuffleFolderCommand.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Tools\ClickOnPointTool.cs" />
     <Compile Include="Tools\Firmata.cs" />
+    <Compile Include="Tools\HLSLReconfig.cs" />
     <Compile Include="Tools\KeyPressTool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

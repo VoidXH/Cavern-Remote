@@ -1,4 +1,4 @@
-controlPages = [ "controls", "corrections", "dvd", "pro" ]
+controlPages = [ "controls", "correction", "projection", "menus", "pro" ]
 get = id => document.getElementById(id);
 sendRequest = uri => fetch("Cavern.md?" + uri);
 
@@ -45,11 +45,42 @@ function setVisibility(div, state) {
     if (div.style.display != next)
       div.style.display = next;
     nav = get("nav-" + div.id);
-    if (state)
+    if (state) {
       nav.classList.add("active");
-    else
+      if (div.innerHTML == "") {
+        lazyLoad(div);
+      }
+    } else
       nav.classList.remove("active");
   }
+}
+
+function lazyLoad(div) {
+  if (div.getAttribute("fetched") === null) {
+    fetch(`lazy${div.id}.htm`).then(response => response.text()).then(content => {
+      div.innerHTML = content;
+      div.setAttribute("fetched", "true");
+
+      const scripts = div.querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        newScript.textContent = script.textContent;
+        document.body.appendChild(newScript).parentNode.removeChild(newScript);
+      });
+    }).catch(e => div.innerHTML = "Error fetching controls: " + e);
+  }
+}
+
+function loadIfAdmin(id) {
+  sendRequest("test=?").then(data => {
+    data.text().then(text => {
+      if (text.endsWith("Admin\r\n")) {
+        fetch(`lazy${id}x.htm`).then(response => response.text()).then(content => {
+          $('#'+id).html(content);
+        });
+      }
+    });
+  });
 }
 
 function loadCavern(path, page) {
@@ -65,8 +96,9 @@ function loadCavern(path, page) {
   var menu = get("navmenu");
   addMenuLink(menu, "Browser", "browser.html", param == "browser");
   addMenuLink(menu, "Controls", "controls.html", param == "controls");
-  addMenuLink(menu, "Corrections", "controls.html?p=corrections", param == "corrections");
-  addMenuLink(menu, "DVD", "controls.html?p=dvd", param == "dvd");
+  addMenuLink(menu, "Correction", "controls.html?p=correction", param == "correction");
+  addMenuLink(menu, "Projection", "controls.html?p=projection", param == "projection");
+  addMenuLink(menu, "Menus", "controls.html?p=menus", param == "menus");
   addMenuLink(menu, "Pro", "controls.html?p=pro", param == "pro");
   addMenuLink(menu, "Lights", "lights.html", param == "lights");
   addMenuLink(menu, "Help", "http://cavern.sbence.hu/cavern/doc.php?p=Remote", false);

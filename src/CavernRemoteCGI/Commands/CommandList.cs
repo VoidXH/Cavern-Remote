@@ -15,6 +15,7 @@ namespace CavernRemoteCGI.Commands {
             PrintHelp<DoubleRelayCommand>();
             PrintHelp<KeyPressCommand>();
             PrintHelp<MultipleCommand>();
+            PrintHelp<ScreenFileCommand>();
             PrintHelp<ShuffleFolderCommand>();
             PrintHelp<TestCommand>();
             PrintHelp<VariableCommand>();

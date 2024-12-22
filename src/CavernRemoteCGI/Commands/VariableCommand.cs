@@ -15,10 +15,11 @@ namespace CavernRemoteCGI.Commands {
             string var = param.Substring(0, index), value = param.Substring(index + 1);
             Settings settings = new Settings();
             if (value.Equals("?")) {
-                if (settings.HasKey(var))
+                if (settings.HasKey(var)) {
                     Console.WriteLine(settings[var]);
-                else
+                } else {
                     Console.WriteLine("The queried variable doesn't exist.");
+                }
             } else {
                 settings.Set(var, value);
                 settings.Save();

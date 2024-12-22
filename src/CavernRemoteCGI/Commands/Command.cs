@@ -36,6 +36,9 @@ namespace CavernRemoteCGI.Commands {
                 case "multiple":
                     runner = new MultipleCommand();
                     break;
+                case "screenfile":
+                    runner = new ScreenFileCommand();
+                    break;
                 case "shuffle":
                     runner = new ShuffleFolderCommand();
                     break;

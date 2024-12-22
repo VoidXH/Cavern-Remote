@@ -8,9 +8,11 @@ and keyboard/mouse control. The Remote is split into separate pages:
 * **Controls**: Basic playback info and controls with picture mode (shader
   preset) and sound mode (audio preset) selection, audio/subtitle track
   switching, and screen resizing.
-* **Corrections**: Move or resize the screen if the content does not fit
+* **Correction**: Move or resize the screen if the content does not fit
   correctly. Audio delay is also adjustable from here.
-* **DVD**: DVD menu navigation and audio/subtitle/angle selectors.
+* **Projection**: If Cinema Shader Pack is installed to MPC-HC, projector
+  corrections for many different distortions are available.
+* **Menus**: DVD menu navigation and audio/subtitle/angle selectors.
 * **Pro**: Player menu control, playlist handling, fine controls, debug and
   setup options.
 * **Lights**: Control Arduino-based ambiend lighting solutions.
@@ -72,6 +74,12 @@ the Pro page.
 3. Open `web\_cavern.js` in any text editor and add the names of your presets to
 the `apoPresetNames` list. Preserve the correct format, check the other array on
 how to do this properly, and don't include the .txt extensions.
+
+### Optional: setup projector corrections (projection tab)
+1. Get [Cinema Shader Pack](https://github.com/VoidXH/Cinema-Shader-Pack).
+2. Copy its `Shaders` folder to MPC-HC's root folder. Allow overwriting. The
+following file must exist: `MPC-HC/Shaders/Screen File.hlsl`.
+3. In `handler\mpcpath.txt`, set the location of MPC-HC's root folder.
 
 ### Optional: setup ambient lighting control
 The ambient lighting is using the Firmata protocol. Use a board on a serial port
